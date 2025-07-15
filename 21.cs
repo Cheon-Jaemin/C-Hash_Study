@@ -1,4 +1,4 @@
-﻿/* 숫자와 문자열 덧셈 */
+﻿/* null 병합 연산자 (??) */
 
 using System;
 using System.Collections.Generic;
@@ -6,19 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
     internal class _21
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(52 + 273);
-            Console.WriteLine("52" + 273);
-            Console.WriteLine(52 + "273");
-            Console.WriteLine("52" + "273");
+            int? x = null;  //nullable 형식 null 저장 가능
+            int y = x ?? -1;    //y는 nullable형식이 아님
+                                // 변수 y에 null값이 대입되면 에러 발생 
+            Console.WriteLine(y);
 
-            //숫자와 문자열을 +연산자를 사용하면 문자열 연결로 적용됨 
-            //문자열과 문자열도 마찬가지임
+            x = 10;
+            y = x ?? -1;
+            Console.WriteLine(y);
         }
     }
 }

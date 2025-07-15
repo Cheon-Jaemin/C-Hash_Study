@@ -1,4 +1,4 @@
-﻿/* string 클래스가 제공하는 다양한 메소드2 */
+﻿/* ConsoleKeyInfo 속성의 예제 */
 
 using System;
 using System.Collections.Generic;
@@ -6,23 +6,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
     internal class _13
     {
         static void Main(string[] args)
         {
-            string greeting = "Good Morning.";
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                //매개변수로 true를 넣으면 입력된 문자가 보이지 않는다.
+                keyInfo = Console.ReadKey();
 
-            Console.WriteLine(greeting.Substring(0, 5));
-            Console.WriteLine(greeting.Substring(5));
+                //입력받은 키값은 소문자가 입력되어도 대문자로 인식
+                if (keyInfo.Key == ConsoleKey.A)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("A가 눌렸습니다.");
+                }
 
-            string[] arr = greeting.Split(' ');
-            Console.WriteLine("Word Count : {0}", arr.Length);
-
-            Console.WriteLine("arr[0] = {0}", arr[0]);   //배열에 저장된 처음값
-            Console.WriteLine("arr[1] = {0}", arr[1]);   //배열에 저장된 그 다음 값
-            //Console.WriteLine("arr[1] = {0}", arr[2]);
+                // 입력받은 문자의 대소문자 구분
+                if (keyInfo.KeyChar == 'c')
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("c가 눌렸습니다.");
+                }
+            } while (keyInfo.Key != ConsoleKey.Escape); //Esc가 눌리면 빠져나감
         }
     }
 }

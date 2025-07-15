@@ -1,4 +1,4 @@
-﻿/* 데이터 형변환(소수점 변화) */
+﻿/* 시프트 연산 */
 
 using System;
 using System.Collections.Generic;
@@ -6,18 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
     internal class _19
     {
         static void Main(string[] args)
         {
-            double number = 52.273103;
-            Console.WriteLine(number.ToString("0.0"));  
-            Console.WriteLine(number.ToString("0.00"));
-            Console.WriteLine(number.ToString("0.000"));
-            Console.WriteLine(number.ToString("0.0000"));
-            //문자열 자릿수 설정해주기 
+            Console.WriteLine("Testing <<...");
+
+            int a = 1;
+            Console.WriteLine("a      : {0:D5} (0x{0:X8})", a);
+            Console.WriteLine("a << 1 : {0:D5} (0x{0:X8})", a << 1);
+            Console.WriteLine("a << 2 : {0:D5} (0x{0:X8})", a << 2);
+            Console.WriteLine("a << 5 : {0:D5} (0x{0:X8})", a << 5);
+
+            Console.WriteLine("\nTesting <<...");
+
+            int b = 255;
+            Console.WriteLine("b      : {0:D5} (0x{0:X8})", b);
+            Console.WriteLine("b >> 1 : {0:D5} (0x{0:X8})", b >> 1);
+            Console.WriteLine("b >> 2 : {0:D5} (0x{0:X8})", b >> 2);
+            Console.WriteLine("b >> 5 : {0:D5} (0x{0:X8})", b >> 5);
         }
     }
 }

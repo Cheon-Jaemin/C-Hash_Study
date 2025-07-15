@@ -1,4 +1,4 @@
-﻿/* 문자열의 문자 개수를 Length 로 확인 */
+﻿/* 사용자 지정형 - 열거형 */
 
 using System;
 using System.Collections.Generic;
@@ -6,17 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
+    enum DialogResult1 { YES, NO, CANCEL}
+    enum DialogResult3 { YES = 10, NO, CANCEL, CONFIRM = 20, OK }
+
     internal class _10
     {
         static void Main(string[] args)
         {
-            string str1 = "Hello_World!";
-            Console.WriteLine("문자 개수 : {0}", str1.Length);
-            // 중괄호안에 순서를 넣어주고 뒤에 넣어주면 됨
-            Console.WriteLine($"문자 개수 : {str1.Length}");
-            // $를 쓰면 중괄호안에 바로 값을 넣어주면 됨
+            Console.WriteLine((int)DialogResult1.YES);
+            DialogResult1 result = DialogResult1.YES;
+            Console.WriteLine(result == DialogResult1.YES);
+
+            Console.WriteLine((int)DialogResult3.YES);
+            Console.WriteLine((int)DialogResult3.NO);
+            Console.WriteLine((int)DialogResult3.CANCEL);
+            Console.WriteLine((int)DialogResult3.CONFIRM);
+            Console.WriteLine((int)DialogResult3.OK);
         }
     }
 }

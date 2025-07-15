@@ -1,4 +1,4 @@
-﻿/* string 클래스가 제공하는 다양한 메소드2 */
+﻿/* 참조 형식 배열의 복사가 일어난 뒤 배열의 요소값 */
 
 using System;
 using System.Collections.Generic;
@@ -6,22 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
     internal class _12
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("ToLower() : '{0}'", "ABC".ToLower());
-            Console.WriteLine("ToUpper() : '{0}'", "ABC".ToUpper());
-
-            Console.WriteLine("Insert() : '{0}'", "Happy Friday!".Insert(5, " Sunny"));
-            Console.WriteLine("Remove() : '{0}'", "I Don't Love You".Remove(2, 6));
-            // 2번째 인덱스부터 6개 문자 삭제
-
-            Console.WriteLine("Trim() : '{0}'", " No Spaces ".Trim());  // 앞뒤 공백 삭제
-            Console.WriteLine("TrimStart() : '{0}'", " No Spaces ".TrimStart());    //앞 공백 삭제
-            Console.WriteLine("TrimEnd() : '{0}'", " No Spaces ".TrimEnd());    //뒤 공백 삭제
+            int[] arr = { 1, 2, 3 };
+            int[] reArr; //참조형 배열 변수
+            reArr = arr; //C언어와 달리 객체의 메모리 주소가 복사됨, 객체의 복사 가능
+            reArr[1] = 20; //reArr 인덱스 1번 값 20으로 변경
+            
+            // 배열 arr의 값이 변경됨
+            Console.WriteLine("arr[0] = {0}, arr1[1] = {1}, arr1[2] = {2}", arr[0], arr[1], arr[2]);
         }
     }
 }

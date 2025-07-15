@@ -1,4 +1,4 @@
-﻿/* Var형 변수를 사용한 실수 타입에 대한 출력문의 제어 */
+﻿/* Console.ReadLine() 예시 */
 
 using System;
 using System.Collections.Generic;
@@ -6,17 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
     internal class _14
     {
         static void Main(string[] args)
         {
-            var value1 = 3.14f;
-            float value2 = 10.0f;
-            float sum = (value1 + value2);
+            Console.WriteLine("문자열을 입력받으시오");
+            string input = Console.ReadLine();
 
-            Console.WriteLine("{0:f3} / {1:f5} / {2:f} / {3:f1} / {4:f3}", value1, value2, value2, value2, sum);
+            Console.WriteLine("input : " + input);
+
+            //문자열을 정수로 변환하기
+            int intinput = int.Parse(input);
+            Console.WriteLine(intinput + 1);
         }
     }
 }

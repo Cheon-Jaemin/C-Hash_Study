@@ -1,4 +1,4 @@
-﻿/* nullable형을 선언하고 판독 */
+﻿/* 나머지 연산자의 부호 */
 
 using System;
 using System.Collections.Generic;
@@ -6,23 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hello
+namespace day2
 {
     internal class _16
     {
         static void Main(string[] args)
         {
-            int? num1 = null;
+            Console.WriteLine(4 % 3);
+            Console.WriteLine(-4 % 3);
+            Console.WriteLine(4 % -3);
+            Console.WriteLine(-4 % -3);
 
-            Console.WriteLine(num1.HasValue); //num1 에 값이 없어서 False
-            if(num1 != null)
-            {
-                Console.WriteLine(num1.Value); //num1에 값이 없어서 조건에 거짓이 되어 출력 x
-            }
-
-            num1 = 150;
-            Console.WriteLine(num1.HasValue); //num1에 값이 150이 생겨서 True
-            Console.WriteLine(num1.Value);    // 150출력   
+            // 나머지 연산자의 부호는 왼쪽 피연산자의 부호를 따름
+            // 따라서 오른쪽 피연산자의 부호는 연산에 상관없음
+            // 보통 연산을 할 때 마이너스 부호는 사용할 일이 거의 없으므로 참고할 것
         }
     }
 }
