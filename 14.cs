@@ -1,4 +1,4 @@
-﻿/* Console.ReadLine() 예시 */
+﻿/* string배열을 선언하고 foreach를 통해 배열 요소 출력 */
 
 using System;
 using System.Collections.Generic;
@@ -6,20 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
     internal class _14
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("문자열을 입력받으시오");
-            string input = Console.ReadLine();
+            //배열의 요소값 생성
+            string[] intArray = { "사과", "자두", "복숭아", "딸기", "귤" };
 
-            Console.WriteLine("input : " + input);
-
-            //문자열을 정수로 변환하기
-            int intinput = int.Parse(input);
-            Console.WriteLine(intinput + 1);
+            Console.WriteLine("foreach와 var를 통해 출력하기");
+            // 반복을 통해 요소값 출력
+            foreach (var str in intArray)
+            {
+                Console.WriteLine(str);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿/* 사용자 지정형 - 열거형 */
+﻿/* 키 입력에 따른 switch문 사용한 분기 */
 
 using System;
 using System.Collections.Generic;
@@ -6,24 +6,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
-    enum DialogResult1 { YES, NO, CANCEL}
-    enum DialogResult3 { YES = 10, NO, CANCEL, CONFIRM = 20, OK }
-
     internal class _10
     {
         static void Main(string[] args)
         {
-            Console.WriteLine((int)DialogResult1.YES);
-            DialogResult1 result = DialogResult1.YES;
-            Console.WriteLine(result == DialogResult1.YES);
+            Console.WriteLine("콘솔키를 입력하시오");
+            ConsoleKeyInfo info = Console.ReadKey();
 
-            Console.WriteLine((int)DialogResult3.YES);
-            Console.WriteLine((int)DialogResult3.NO);
-            Console.WriteLine((int)DialogResult3.CANCEL);
-            Console.WriteLine((int)DialogResult3.CONFIRM);
-            Console.WriteLine((int)DialogResult3.OK);
+            switch(info.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    {
+                        Console.WriteLine(" ^ 위로 이동");
+                        break;
+                    }
+                case ConsoleKey.RightArrow:
+                    {
+                        Console.WriteLine(" > 오른쪽으로 이동");
+                        break;
+                    }
+                case ConsoleKey.DownArrow:
+                    {
+                        Console.WriteLine(" v 아래로 이동");
+                        break;
+                    }
+                case ConsoleKey.LeftArrow:
+                    {
+                        Console.WriteLine(" < 왼쪽으로 이동");
+                        break;
+                    }
+            }
         }
     }
 }

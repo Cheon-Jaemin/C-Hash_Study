@@ -1,4 +1,4 @@
-﻿/* 나머지 연산자의 부호 */
+﻿/* break를 사용하여 실행의 흐름 벗어나기 */
 
 using System;
 using System.Collections.Generic;
@@ -6,20 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
     internal class _16
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(4 % 3);
-            Console.WriteLine(-4 % 3);
-            Console.WriteLine(4 % -3);
-            Console.WriteLine(-4 % -3);
+            while(true)
+            {
+                Console.WriteLine("계속할까요? (예 / 아니요) > ");
+                string answer = Console.ReadLine();
 
-            // 나머지 연산자의 부호는 왼쪽 피연산자의 부호를 따름
-            // 따라서 오른쪽 피연산자의 부호는 연산에 상관없음
-            // 보통 연산을 할 때 마이너스 부호는 사용할 일이 거의 없으므로 참고할 것
+                if(answer == "아니요")
+                {
+                    break;  //가장 가까운 반복문 while을 빠져나간다.
+                }   //  }밖이 break문 벗어나는 곳
+            }
         }
     }
 }

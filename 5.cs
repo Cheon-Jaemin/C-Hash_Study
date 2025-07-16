@@ -1,4 +1,6 @@
-﻿/* 구조체 멤버를 입력받아 출력하기 */
+﻿/* 사용자로부터 정수 한 개를 입력 받아 
+ * 그 숫자가 '음수', '양수', '0' 인지 판별하고
+ 짝수인지 홀수인지 구분하여 나타내시오 */
 
 using System;
 using System.Collections.Generic;
@@ -6,33 +8,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
-    public struct MyStruct
-    {
-        public int age;
-        public string testA = null;
-        public string testB = null;
-        public MyStruct(int inAge)
-        {
-            this.age = inAge;
-        }
-    }
-
     internal class _5
     {
         static void Main(string[] args)
         {
-            MyStruct s1; // 사용방법 1
-            Console.WriteLine("age 입력");
-            s1.age = int.Parse(Console.ReadLine()); // 문자열 > int형 변환
-            Console.WriteLine("구조체 멤버 age = {0}", s1.age);
+            int a;
+            Console.WriteLine("정수를 입력하시오");
+            a = int.Parse(Console.ReadLine());
 
-            MyStruct s2 = new MyStruct();
-            Console.WriteLine("문자열 멤버 입력");
-            s2.testA = Console.ReadLine();
-            s2.testB = Console.ReadLine();
-            Console.WriteLine("구조체 문자열 멤버1 : {0}, 구조체 문자열 멤버2 : {1}", s2.testA, s2.testB);
+            if(a > 0)
+            {
+                Console.WriteLine("양수");  
+            }
+            else if (a < 0)
+            {
+                Console.WriteLine("음수");
+            }
+            else
+            {
+                Console.WriteLine("0");
+            }
+
+            if (a % 2 == 0)
+            {
+                Console.WriteLine("짝수");
+            }
+            else
+            {
+                Console.WriteLine("홀수");
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿/* 구조체 멤버들을 같은 구조체에 대입하면 값 복사가 이뤄짐 */
+﻿/* 요일을 입력 받아 
+sunday monday tuesday wednesday thursday friday saturday 
+잘못 입력했다면 요일이 아닙니다 라고 출력 */
 
 using System;
 using System.Collections.Generic;
@@ -6,25 +8,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
-    public struct Mystruct
-    {
-        public int age;
-        public string name;
-    }
-
     internal class _7
     {
         static void Main(string[] args)
         {
-            Mystruct testStruct1, testStruct2;
-            testStruct2.age = 27;
-            testStruct2.name = "struct";
-            Console.WriteLine("복사할 구조체 : age = {0}, name = {1}", testStruct2.age, testStruct2.name);
+            Console.WriteLine("요일을 입력하세요(일, 월, 화, 수, 목, 금, 토) : ");
+            string day;
+            day = Console.ReadLine();
 
-            testStruct1 = testStruct2;  //구조체 복사를 통한 초기화
-            Console.WriteLine("복사 된 구조체 : age = {0}, name = {1}", testStruct1.age, testStruct1.name);
+            switch (day)
+            {
+                case "일":
+                    {
+                        Console.WriteLine("Sunday");
+                        break;
+                    }
+                case "월":
+                    {
+                        Console.WriteLine("Monday");
+                        break;
+                    }
+                case "화":
+                    {
+                        Console.WriteLine("Tuesday");
+                        break;
+                    }
+                case "수":
+                    {
+                        Console.WriteLine("Wednesday");
+                        break;
+                    }
+                case "목":
+                    {
+                        Console.WriteLine("Thursday");
+                        break;
+                    }
+                case "금":
+                    {
+                        Console.WriteLine("Friday");
+                        break;
+                    }
+                case "토":
+                    {
+                        Console.WriteLine("Saturday");
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("{0}은 요일이 아닙니다.", day);
+                        break;
+                    }
+            }
         }
     }
 }

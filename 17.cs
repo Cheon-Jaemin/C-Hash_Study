@@ -1,4 +1,4 @@
-﻿/* string에서 + 문자열 연결 */
+﻿/* continue문 */
 
 using System;
 using System.Collections.Generic;
@@ -6,23 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
     internal class _17
     {
         static void Main(string[] args)
         {
-            string str = "3" + ".14";
-            Console.WriteLine(str);
-            Console.WriteLine(+5);
-            Console.WriteLine(5 + 5);
-            Console.WriteLine(5 + .5);
-            Console.WriteLine("5" + "5");
-            Console.WriteLine(5.01f + "5");
-            Console.WriteLine("5" + 3.14f);
-            Console.WriteLine(5 + 5 + 5 + "문자열");
-            str = 1 + "test" + 3.14f + "abcd";
-            Console.WriteLine(str);
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    continue;   //가장 가까운 반복문 끝으로 간다.
+                }
+
+                Console.WriteLine("{0} : 홀수", i);
+            }   //   }안으로 continue문이 건너뛴다.
         }
     }
 }

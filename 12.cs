@@ -1,4 +1,4 @@
-﻿/* 참조 형식 배열의 복사가 일어난 뒤 배열의 요소값 */
+﻿/* foreach문을 이용하여 배열 요소값을 출력 */
 
 using System;
 using System.Collections.Generic;
@@ -6,19 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day2
+namespace day3
 {
     internal class _12
     {
         static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 3 };
-            int[] reArr; //참조형 배열 변수
-            reArr = arr; //C언어와 달리 객체의 메모리 주소가 복사됨, 객체의 복사 가능
-            reArr[1] = 20; //reArr 인덱스 1번 값 20으로 변경
-            
-            // 배열 arr의 값이 변경됨
-            Console.WriteLine("arr[0] = {0}, arr1[1] = {1}, arr1[2] = {2}", arr[0], arr[1], arr[2]);
+            int[] arr = { 1, 2, 3, 4 };
+
+            foreach(var nValue in arr) //nValue는 읽기 전용
+            {
+                Console.WriteLine(nValue);  // foreach문을 사용할 때는 식별자와
+            }                               // 식별자의 데이터형을 함께 괄호안에 선언
         }
     }
 }
