@@ -1,4 +1,4 @@
-﻿/* switch, case문 데이터형 조건 */
+﻿/* 2025 07 18 (금) 아침퀴즈 4번 */
 
 using System;
 using System.Collections.Generic;
@@ -6,60 +6,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day4
 {
     internal class _8
     {
         static void Main(string[] args)
         {
-            object obj = null;
+            double[] nArray = new double[6];
+            double sum1 = 0;
+            double sum2 = 0;
 
-            Console.WriteLine("숫자형태로 입력하시오");
-            string s = Console.ReadLine();
-            //TryParse() 형변환을 시도하고 가능하면 True반환
-
-            if (int.TryParse(s, out int out_i)) //입력받은 s가 정수형이면 정수형으로 형변환해주고 정수형 변수 out_i에 저장
+            for(int i = 0; i < nArray.Length; i++)
             {
-                obj = out_i;
-            }
-            else if (float.TryParse(s, out float out_f))
-            {
-                obj = out_f;
-            }
-            else
-            {
-                obj = s;
+                Console.WriteLine("실수를 입력하세요.");
+                nArray[i] = double.Parse(Console.ReadLine());
+                sum1 = (sum1 + nArray[i]);
             }
 
-            switch (obj)
+            for (int i = 0; i < nArray.Length; i++)
             {
-                case int i when i>= 0:
-                    {
-                        Console.WriteLine("{0}은 양의 int 형식입니다.", i);
-                        break;
-                    }
-                case int i :
-                    {
-                        Console.WriteLine("{0}은 음의 int 형식입니다.", i);
-                        break;
-                    }
-                case float f when f >= 0:
-                    {
-                        Console.WriteLine("{0}은 양의 float 형식입니다.", f);
-                        break;
-                    }
-                case float f :
-                    {
-                        Console.WriteLine("{0}은 음의 float 형식입니다.", f);
-                        break;
-                    }
-
-                default:
-                    {
-                        Console.WriteLine("{0}은 모르는 형식입니다.", obj);
-                        break;
-                    }
+                Console.Write("{0} ", nArray[i]);
             }
+            Console.Write(sum1);
+            Console.WriteLine();
+            
+            foreach(double i in nArray)
+            {
+                Console.Write("{0} ", i);
+                sum2 = (sum2 + i);
+            }
+            Console.Write(sum2);
         }
     }
 }

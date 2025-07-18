@@ -1,4 +1,4 @@
-﻿/* 현재 컴퓨터의 시간을 불러와서 오전 오후 구분하기 */
+﻿/* 감자와 고구마 */
 
 using System;
 using System.Collections.Generic;
@@ -6,32 +6,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day4
 {
     internal class _2
     {
+        class Product
+        {
+            public static int counter = 0;
+            public int id;
+            public string name;
+            public int price;
+
+            public Product(string name, int price)
+            {
+                Product.counter = counter + 1;
+                this.id = counter;
+                this.name = name;
+                this.price = price;
+            }
+
+            ~Product()
+            {
+                Console.WriteLine("소멸자의 호출");
+            }
+        }
         static void Main(string[] args)
         {
-            //Console.WriteLine(DateTime.Now.Year);
-            //Console.WriteLine(DateTime.Now.Month);
-            //Console.WriteLine(DateTime.Now.Day);
-            //Console.WriteLine(DateTime.Now.Hour);
-            //Console.WriteLine(DateTime.Now.Minute);
-            //Console.WriteLine(DateTime.Now.Second);
-
-            Console.WriteLine(DateTime.Now.ToLongDateString());
-            Console.WriteLine(DateTime.Now.ToShortTimeString());
-            Console.WriteLine(DateTime.Now.ToLongTimeString());
-            Console.WriteLine(DateTime.Now.ToString());
-
-            if (DateTime.Now.Hour < 12)
-            {
-                Console.WriteLine("오전입니다.");
-            }
-            else
-            {
-                Console.WriteLine("오후입니다.");
-            }
+            Product productA = new Product("감자", 2000);
+            Product productB = new Product("고구마", 3000);
+            Product productC = new Product("양파", 2500);
+            Product productD = new Product("대파", 4000);
+            
+            Console.WriteLine("{0} : {1} {2}원", productA.id, productA.name, productA.price);
+            Console.WriteLine("{0} : {1} {2}원", productB.id, productB.name, productB.price);
+            Console.WriteLine("{0} : {1} {2}원", productC.id, productC.name, productC.price);
+            Console.WriteLine("{0} : {1} {2}원", productD.id, productD.name, productD.price);
+            Console.WriteLine("{0}개 생성되었습니다.", Product.counter);
         }
     }
 }

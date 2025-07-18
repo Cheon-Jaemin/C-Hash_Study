@@ -1,6 +1,4 @@
-﻿/* 컴퓨터의 현재 시간이 11시 이전이면 아침먹을 시간입니다.
- * 15시보다 작으면 점심먹을 시간입니다.
- 그 이후면 저녁먹을 시간입니다 출력되게 하기 */
+﻿/* 여러 클래스에서 Global이라는 클래스의 정적 필드에 접근하는 코드 */
 
 using System;
 using System.Collections.Generic;
@@ -8,24 +6,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day4
 {
     internal class _4
     {
+        class Global
+        {
+            public static int Count = 0;
+        }
+        class ClassA
+        {
+            public ClassA()
+            { 
+                Global.Count++;
+            }
+        }
+        class ClassB
+        {
+            public ClassB()
+            {
+                Global.Count++;
+            }
+        }
         static void Main(string[] args)
         {
-            if(DateTime.Now.Hour < 11)
-            {
-                Console.WriteLine("아침 먹을 시간입니다.");
-            }
-            else if(DateTime.Now.Hour < 15)
-            {
-                Console.WriteLine("점심 먹을 시간입니다.");
-            }
-            else
-            {
-                Console.WriteLine("저녁 먹을 시간입니다.");   
-            }
+            Console.WriteLine("Global.Count : {0}", Global.Count);
+
+            new ClassA();
+            new ClassA();
+            new ClassB();
+            new ClassB();
+            Console.WriteLine("Global.Count : {0}", Global.Count);
         }
     }
 }

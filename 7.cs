@@ -1,6 +1,4 @@
-﻿/* 요일을 입력 받아 
-sunday monday tuesday wednesday thursday friday saturday 
-잘못 입력했다면 요일이 아닙니다 라고 출력 */
+﻿/* 2025 07 18 (금) 아침퀴즈 3번 */
 
 using System;
 using System.Collections.Generic;
@@ -8,58 +6,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day4
 {
     internal class _7
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("요일을 입력하세요(일, 월, 화, 수, 목, 금, 토) : ");
-            string day;
-            day = Console.ReadLine();
+            Console.WriteLine("다이아몬드의 높이를 입력하시오.");
+            int line = int.Parse(Console.ReadLine());
+            int i, j, k;
 
-            switch (day)
+            for (i = 1; i <= (line / 2) + 1; i++)
             {
-                case "일":
-                    {
-                        Console.WriteLine("Sunday");
-                        break;
-                    }
-                case "월":
-                    {
-                        Console.WriteLine("Monday");
-                        break;
-                    }
-                case "화":
-                    {
-                        Console.WriteLine("Tuesday");
-                        break;
-                    }
-                case "수":
-                    {
-                        Console.WriteLine("Wednesday");
-                        break;
-                    }
-                case "목":
-                    {
-                        Console.WriteLine("Thursday");
-                        break;
-                    }
-                case "금":
-                    {
-                        Console.WriteLine("Friday");
-                        break;
-                    }
-                case "토":
-                    {
-                        Console.WriteLine("Saturday");
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("{0}은 요일이 아닙니다.", day);
-                        break;
-                    }
+                for(j = i; j <= (line / 2); j++)
+                {
+                    Console.Write(" ");
+                }
+                for(k = 1; k <= (2 * i) - 1; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+            for (i = (line / 2); i >= 1; i--)
+            {
+                for (j = i; j <= (line / 2); j++)
+                {
+                    Console.Write(" ");
+                }
+                for (k = 1; k <= (2 * i) - 1; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();    
             }
         }
     }

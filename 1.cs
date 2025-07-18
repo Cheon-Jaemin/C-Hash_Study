@@ -1,26 +1,47 @@
-﻿/* 짝수와 홀수를 if else문으로 구분하기 */
+﻿/* 데이터의 은닉과 캡슐화 */
 
 using System;
 
-namespace day3
+namespace day4
 {
+    class WaterHeater
+    {
+        protected int temperature;
+
+        public void setTemperature(int temperature) // 매개변수는 있고 반환형x
+        {
+            if (temperature < 10 || 42 < temperature)
+            {
+                Console.WriteLine("10 ~ 42도 사이의 온도값을 입력하세요.");
+                Console.WriteLine("물의 온도는 15도로 리셋됩니다.");
+                this.temperature = 15;
+                return;
+            }
+            this.temperature = temperature; // this가 붙으면 클래스 내의 멤버변수를 의미
+        }
+
+        public void turnOnWater()
+        {
+            Console.WriteLine($"Turn on water : {temperature}");
+        }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("숫자 입력");
-            string input = Console.ReadLine();
-            int a = int.Parse(input);   
-            // 입력받은 문자열 정수형으로 변환하여 저장
+            WaterHeater heater = new WaterHeater(); //생성자를 통해 인스턴스 생성
+            int temp;
 
-            if (a % 2 == 0) // a를 2로 나눈 나머지가 0 이면 짝수
+            for(int i = 0; i < 3; i++)
             {
-                Console.WriteLine("짝수");
+                Console.WriteLine("물의 온도를 입력하세요");
+                temp = int.Parse(Console.ReadLine());
+                heater.setTemperature(temp);
+                heater.turnOnWater();
             }
-            else // 아니면 홀수
-            {
-                Console.WriteLine("홀수");
-            }
+            //heater.setTemperature = 15;   //protected로 선언한 변수
+                                            //외부 접근 불가
         }
     }
 }
