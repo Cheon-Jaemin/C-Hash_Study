@@ -1,4 +1,4 @@
-﻿/* continue문 */
+﻿/* 가변길이 매개변수 params */
 
 using System;
 using System.Collections.Generic;
@@ -6,21 +6,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day5
 {
     internal class _17
     {
+        static int Sum(params int[] args)   // params 가변길이 매개변수 제어
+        {
+            Console.Write("Summing...");
+            int sum = 0;
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                if(i > 0)
+                {
+                    Console.Write(", ");
+                }
+                Console.Write(args[i]);
+                sum = (sum + args[i]);
+            }
+            Console.WriteLine();
+            return sum;
+        }
+
         static void Main(string[] args)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    continue;   //가장 가까운 반복문 끝으로 간다.
-                }
-
-                Console.WriteLine("{0} : 홀수", i);
-            }   //   }안으로 continue문이 건너뛴다.
+            int sum = Sum(3, 4, 5, 6, 7, 8, 9, 10, 14, 30); //Sum() 메소드 호출하면서 매개변수 전달 
+            Console.WriteLine("Sum : {0}", sum);
         }
     }
 }

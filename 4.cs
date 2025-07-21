@@ -1,4 +1,5 @@
-﻿/* 여러 클래스에서 Global이라는 클래스의 정적 필드에 접근하는 코드 */
+﻿/* List 클래스 (문자열) 
+ 리스트의 요소값을 주어진 범위 안에서 추출하기 (GetRange) */
 
 using System;
 using System.Collections.Generic;
@@ -6,37 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day4
+namespace day5
 {
     internal class _4
     {
-        class Global
-        {
-            public static int Count = 0;
-        }
-        class ClassA
-        {
-            public ClassA()
-            { 
-                Global.Count++;
-            }
-        }
-        class ClassB
-        {
-            public ClassB()
-            {
-                Global.Count++;
-            }
-        }
         static void Main(string[] args)
         {
-            Console.WriteLine("Global.Count : {0}", Global.Count);
+            List<string> rivers = new List<string>(new string[]
+            {
+                "signals",
+                "math",
+                "express",
+                "electro",
+                "photonics"
+            });
 
-            new ClassA();
-            new ClassA();
-            new ClassB();
-            new ClassB();
-            Console.WriteLine("Global.Count : {0}", Global.Count);
+            List<string> range = rivers.GetRange(0, 3); 
+            // GetRange(인덱스번호, 추출하고싶은 개수)
+
+            foreach (string river in range) 
+            {
+                Console.WriteLine(river);
+            }
         }
     }
 }

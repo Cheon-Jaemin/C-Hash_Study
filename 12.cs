@@ -1,4 +1,4 @@
-﻿/* foreach문을 이용하여 배열 요소값을 출력 */
+﻿/* 클래스 메소드에서는 static이 붙은 클래스 변수만 사용할 수 있음. */
 
 using System;
 using System.Collections.Generic;
@@ -6,18 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day5
 {
     internal class _12
     {
+        public static int instanceVariable = 10;
+        // static이 존재하는 클래스 변수에만 접근이 가능 
+        
         static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 3, 4 };
-
-            foreach(var nValue in arr) //nValue는 읽기 전용
-            {
-                Console.WriteLine(nValue);  // foreach문을 사용할 때는 식별자와
-            }                               // 식별자의 데이터형을 함께 괄호안에 선언
+            Console.WriteLine(instanceVariable);
         }
     }
 }

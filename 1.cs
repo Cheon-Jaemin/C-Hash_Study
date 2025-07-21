@@ -1,47 +1,51 @@
-﻿/* 데이터의 은닉과 캡슐화 */
+﻿/* this생성자 호출 */
 
 using System;
 
-namespace day4
+namespace day5
 {
-    class WaterHeater
-    {
-        protected int temperature;
-
-        public void setTemperature(int temperature) // 매개변수는 있고 반환형x
-        {
-            if (temperature < 10 || 42 < temperature)
-            {
-                Console.WriteLine("10 ~ 42도 사이의 온도값을 입력하세요.");
-                Console.WriteLine("물의 온도는 15도로 리셋됩니다.");
-                this.temperature = 15;
-                return;
-            }
-            this.temperature = temperature; // this가 붙으면 클래스 내의 멤버변수를 의미
-        }
-
-        public void turnOnWater()
-        {
-            Console.WriteLine($"Turn on water : {temperature}");
-        }
-    }
-
     internal class Program
     {
+        class MyClass
+        {
+            int a, b, c;
+
+            public MyClass()
+            {
+                this.a = 5425;
+                Console.WriteLine("MyClass()");
+            }
+
+            public MyClass(int b) : this()
+            {
+                this.b = b;
+                Console.WriteLine("MyClass({0})", b);
+            }
+            public MyClass(int b, int c) : this(b)
+            {
+                this.c = c;
+                Console.WriteLine("MyClass({0}, {1})", b, c);
+            }
+
+            public void printFields()
+            {
+                Console.WriteLine("a : {0}, b : {1}, c : {2}", a, b, c);
+            }
+
+        }
+
         static void Main(string[] args)
         {
-            WaterHeater heater = new WaterHeater(); //생성자를 통해 인스턴스 생성
-            int temp;
+            MyClass a = new MyClass();
+            a.printFields();
+            Console.WriteLine();
 
-            for(int i = 0; i < 3; i++)
-            {
-                Console.WriteLine("물의 온도를 입력하세요");
-                temp = int.Parse(Console.ReadLine());
-                heater.setTemperature(temp);
-                heater.turnOnWater();
-            }
-            //heater.setTemperature = 15;   //protected로 선언한 변수
-                                            //외부 접근 불가
+            MyClass b = new MyClass(1); // new MyClass(b:1);
+            b.printFields();
+            Console.WriteLine();
+
+            MyClass c = new MyClass(10, 20);    // new MyClass(b:10, c:20);
+            c.printFields();
         }
     }
 }

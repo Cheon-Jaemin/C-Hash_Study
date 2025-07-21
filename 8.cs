@@ -1,4 +1,4 @@
-﻿/* 2025 07 18 (금) 아침퀴즈 4번 */
+﻿/* 임의의 정수를 사용해서 다음과 같은 숫자 맞추기 코드를 만들어 보세요 */
 
 using System;
 using System.Collections.Generic;
@@ -6,36 +6,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day4
+namespace day5
 {
     internal class _8
     {
         static void Main(string[] args)
         {
-            double[] nArray = new double[6];
-            double sum1 = 0;
-            double sum2 = 0;
+            Random random = new Random();
 
-            for(int i = 0; i < nArray.Length; i++)
-            {
-                Console.WriteLine("실수를 입력하세요.");
-                nArray[i] = double.Parse(Console.ReadLine());
-                sum1 = (sum1 + nArray[i]);
-            }
+            int temp = random.Next(1, 50);
 
-            for (int i = 0; i < nArray.Length; i++)
+            while (true)
             {
-                Console.Write("{0} ", nArray[i]);
+                Console.WriteLine("숫자를 입력하세요.");
+                int read = int.Parse(Console.ReadLine());
+
+                if (temp == read)
+                {
+                    Console.WriteLine("정답입니다!");
+                    break;
+                }
+                else if (temp > read)
+                {
+                    Console.WriteLine("{0}보다는 큰 숫자입니다.", read);
+                }
+                else
+                {
+                    Console.WriteLine("{0}보다는 작은 숫자입니다.", read);
+                }
             }
-            Console.Write(sum1);
-            Console.WriteLine();
-            
-            foreach(double i in nArray)
-            {
-                Console.Write("{0} ", i);
-                sum2 = (sum2 + i);
-            }
-            Console.Write(sum2);
         }
     }
 }

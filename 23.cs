@@ -1,4 +1,5 @@
-﻿/* 초기화 Clear() */
+﻿/* 출력전용 매개변수 키워드 : out
+ 결과값을 2개이상 반환하고 싶을 때 사용하는 키워드, 참조에 의한 반환 */
 
 using System;
 using System.Collections.Generic;
@@ -6,29 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day5
 {
     internal class _23
     {
+        public static void DivideOut(int a, int b, out int c, out int d)
+        {
+            c = a / b;
+            d= a % b;
+        }
+
         static void Main(string[] args)
         {
-            int[] arr1 = { 1, 2, 3, 4, 5 };
-            Array.Clear(arr1, 2, 3);    //arr1의 인덱스 2번부터 3길이 만큼 0
-
-            foreach(int m in arr1)
-            {
-                Console.Write(m);
-            }
-            Console.WriteLine();
-
-            //arr1의 인덱스 0번부터 총 길이만큼 0으로 초기화
-            Array.Clear(arr1, 0, arr1.Length);
-
-            foreach(int m in arr1)
-            {
-                Console.Write(m);
-            }
-            Console.WriteLine();
+            Console.WriteLine("두개의 정수 입력");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c, d;
+            DivideOut(a, b, out c, out d);
+            Console.WriteLine("몫 : {0}, 나머지 : {1}", c, d);
         }
     }
 }

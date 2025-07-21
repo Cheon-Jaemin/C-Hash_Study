@@ -1,23 +1,64 @@
-﻿/* 별 직각삼각형 만들기 */
+﻿/* 2차원배열에서의 배열이름을 return하는 메소드 */
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day5
 {
     internal class _15
     {
+        static int[] CreateArray1(int nSize)
+        {   //1차원 배열 생성 및 초기화
+            int[] arr1 = new int[nSize];
+            for(int i = 0; i < arr1.Length; i++)    //nSize만큼 반복해서 값을 받아들임, 배열은 참조형식
+            {
+                arr1[i] = i;
+            }
+            
+            return arr1;
+        }
+
+        static int[,] CreateArray2(int nRow, int nCol)
+        {   //2행 3열의 2차원 배열 초기화
+            int index = 0;
+            int[,] arr2 = new int[nRow, nCol];
+            for(int i = 0; i < nRow; i++)
+            {
+                for(int j = 0; j < nCol; j++)
+                {
+                    arr2[i, j] = index++;
+                }
+            }
+            return arr2;
+        }
+
         static void Main(string[] args)
         {
-            int i, j;
-            for (i = 1; i <= 10; i++)
+            int[] nArr1;    //1차원 배열의 선언
+            int[,] nArr2;   //2차원 배열의 선언
+            
+            nArr1 = CreateArray1(5);
+            nArr2 = CreateArray2(2, 3);
+
+            //1차원 배열의 길이만큼 출력
+            Console.WriteLine("nArr1의 1차원 배열의 출력");
+            for(int i = 0; i < nArr1.Length; i++)
             {
-                for(j = 1; j <= i; j++)
+                Console.Write(nArr1[i]+" ");
+            }
+            Console.WriteLine();
+
+            //2차원 배열의 길이만큼 출력
+            for (int i = 0; i < nArr2.GetLength(0); i++)    // 행의 길이
+            {
+                Console.WriteLine("nArr2의 2차원 배열의 {0}행 출력", i);
+                for(int j = 0; j < nArr2.GetLength(1); j++) //열의 길이
                 {
-                    Console.Write("*");
+                    Console.Write(nArr2[i, j]+" ");
                 }
                 Console.WriteLine();
             }

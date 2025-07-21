@@ -1,40 +1,50 @@
-﻿/* 기타 메소드 및 속성 */
+﻿/* 2025/ 07/ 21 (월) 아침퀴즈 6번 */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day5
 {
+    class People
+    {
+        public static int cnt = 0;
+        public int count2;
+        public int finger;
+        public string name;
+
+        public People()
+        {
+            count2 = 0;
+            name = " ";
+            finger = 0;
+        }
+
+        public People(int finger, string name)
+        {
+            this.finger = finger;
+            this.name = name;
+            People.cnt = People.cnt + 1;
+        }
+    }
+
     internal class _25
     {
         static void Main(string[] args)
         {
-            int[] scores = new int[] { 80, 74, 81, 90, 34 };
-            foreach (var score in scores)
-            {
-                Console.Write($"{score} ");
-            }
-            Console.WriteLine();
-
-            Array.Sort(scores);                                                                 //Array클래스의 Sort()메서드를 사용해 배열을 정렬
-            foreach (var score in scores)
-            {
-                Console.Write($"{score} ");
-            }
-            Console.WriteLine();
+            People people1 = new People(10, "홍길동");
+            Console.WriteLine("{0} : {1} {2}", People.cnt, people1.name, people1.finger);
             
-            Console.WriteLine("Number of dimensions : {0}", scores.Rank);                       //scores배열의 차원을 Rank프로퍼티가 반환
+            People people2 = new People(9, "코난");
+            Console.WriteLine("{0} : {1} {2}", People.cnt, people2.name, people2.finger);
             
-            Console.WriteLine("Binary Search : 81 is at {0}", Array.BinarySearch(scores, 81));  //정렬후scores에서 81의 위치 탐색
-            Console.WriteLine("Linear Search: 90 is at {0}", Array.IndexOf(scores, 90));        //scores에서 90의 인덱스값을 반환
+            People people3 = new People(10, "김전일");
+            Console.WriteLine("{0} : {1} {2}", People.cnt, people3.name, people3.finger);
             
-            Console.WriteLine("Old length of scores: {0}", scores.GetLength(0));                //다차원 배열에서 지정한 배열의 길이를 반환
-            Array.Resize<int>(ref scores, 10);                                                  //ref 참조형 변수로 사용하는 키워드, 배열의 크기를 Resize에 의해 재정의
-            Console.WriteLine("New length of scores : {0}", scores.Length);                     //scores의 길이가 5에서 10으로 바뀜
+            Console.WriteLine("{0}개 생성됨", People.cnt);
         }
     }
 }

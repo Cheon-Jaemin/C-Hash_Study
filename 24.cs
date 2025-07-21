@@ -1,4 +1,4 @@
-﻿/* 복사 Clone() */
+﻿/* 2025/ 07/ 21 (월) 아침퀴즈 4번 */
 
 using System;
 using System.Collections.Generic;
@@ -6,37 +6,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day3
+namespace day5
 {
+    class Cat
+    {
+        public string Name;
+        public string Color;
+
+        public void Meow()
+        {
+            Console.WriteLine("{0} : 야옹", Name);
+        }
+    }
+
     internal class _24
     {
         static void Main(string[] args)
         {
-            int[] arr1 = { 1, 2, 3, 4 };
-            int[] cloneArr = (int[])arr1.Clone();
-            //Clone()의 반환타입은 object형. int[]로 형변환(언박싱)
+            Cat cat1 = new Cat();
+            Cat cat2 = new Cat();
+            cat1.Name = "키티";
+            cat1.Color = "하얀색";
+            cat2.Name = "네로";
+            cat2.Color = "검은색";
 
-            cloneArr[2] = 30;
-
-            foreach (var m in arr1)
-            {
-                Console.Write("{0} ", m);
-            }
-            Console.WriteLine();
-
-            foreach (var m in cloneArr)
-            {
-                Console.Write("{0} ", m);
-            }
-            Console.WriteLine();
-
-            string[] days = { "일", "월", "화", "수", "목", "금", "토" };
-            string[] cloneDays = (string[])days.Clone();
-
-            foreach(var m in cloneDays)
-            {
-                Console.Write("{0} ", m);
-            }
+            cat1.Meow();
+            Console.WriteLine("{0} : {1}", cat1.Name, cat1.Color);
+            cat2.Meow();
+            Console.WriteLine("{0} : {1}", cat2.Name, cat2.Color);
         }
     }
 }
