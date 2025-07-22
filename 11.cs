@@ -1,4 +1,4 @@
-﻿/* 클래스 메소드 (생성자를 사용하지 않고 바로 클래스를 통해 메소드를 사용) */
+﻿/* 매개변수가 있는 부모생성자 메소드를 호출하고 싶을 때 */
 
 using System;
 using System.Collections.Generic;
@@ -6,28 +6,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day6
 {
-    class MyMath
+
+    class Parent
     {
-        public static int Abs(int input)
+        public Parent()
         {
-            if(input < 0)
-            {
-                return -input;
-            }
-            else
-            {
-                return input;
-            }
+            Console.WriteLine("1_Parent()");
+        }
+        public Parent(int param)
+        {
+            Console.WriteLine("{0} : {1}", "2_Parent", param);
+        }
+        public Parent(string param)
+        {
+            Console.WriteLine("{0} : {1}", "3_Parent", param);
+        }
+    }
+
+    class Child : Parent
+    {
+        public Child() : base()
+        {
+            Console.WriteLine("1_Child() : base()");
+        }
+        public Child(int a) : base(a) //Parent(int param) 부모 생성자를 호출함
+        {
+            Console.WriteLine("{0} : {1}", "2_Child(int a) -> base" ,a);
+        }
+        public Child(string input) : base(input)    //Parent(string param) 부모 생성자를 호출함 
+        {
+            Console.WriteLine("{0} : {1}", "3_Child(string input) -> base", input);
         }
     }
     internal class _11
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            Console.WriteLine(MyMath.Abs(52));
-            Console.WriteLine(MyMath.Abs(-273));
+            Child childB = new Child(); //자식클래스의 객체 생성
+            Child childC = new Child(10);
+            Child childD = new Child("string");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿/* Random 클래스(라이브러리 함수) */
+﻿/* 메모화 Dictionary클래스 */
 
 using System;
 using System.Collections.Generic;
@@ -6,34 +6,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day6
 {
+    class Fibonacci
+    {
+        private static Dictionary<int, long> memo = new Dictionary<int, long>();
+        public static long Get(int i)
+        {
+            //기본값
+            if (i < 0)
+            {
+                return 0;
+            }
+            if(i == 1)
+            {
+                return 1;
+            }
+
+            //이미 계산했던 값인지 확인
+            if(memo.ContainsKey(i))
+            {
+                return memo[i];
+            }
+            else
+            {
+                //계산하지 않았다면 계산
+                long value = Get(i - 2) + Get(i - 1);
+                memo[i] = value;
+                return value;
+            }
+        }
+    }
     internal class _2
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            Random random = new Random();
-            
-            Console.WriteLine("정수 생성");
-            for(int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(random.Next(10, 100));
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("실수 생성");
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(random.NextDouble() * 10);
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("실수 반올림 표현");
-            for (int i = 0; i < 5; i++)
-            {
-                double r1 = Math.Round(random.NextDouble(), 2); //소수 둘째자리까지 반올림하여 표시 
-                Console.WriteLine(r1);
-            }
+            Console.WriteLine(Fibonacci.Get(40));
+            Console.WriteLine(Fibonacci.Get(90));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿/* 오버로딩 Abs()메소드 만들기 */
+﻿/* 2025/ 07/ 22 (화) 아침퀴즈 3번 */
 
 using System;
 using System.Collections.Generic;
@@ -6,64 +6,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day6
 {
-    class MyMath
-    {
-        public int Abs(int input)
-        {
-            if(input < 0)
-            {
-                return -input;
-            }
-            else 
-            {
-                return input;
-            }
-        }
-        public double Abs(double input)
-        {
-            if (input < 0)
-            {
-                return -input;
-            }
-            else
-            {
-                return input;
-            }
-        }
-        public decimal Abs(decimal input)
-        {
-            if (input < 0)
-            {
-                return -input;
-            }
-            else
-            {
-                return input;
-            }
-        }
-    }
     internal class _16
     {
+        static int[] CA1(int a)
+        {
+            Random random = new Random();
+            int[] arr1 = new int[a];
+
+            for(int i = 0; i < a; i++)
+            {
+                arr1[i] = random.Next(0, 10);
+            }
+
+            return arr1;
+        }
+
+        static int[,] CA2(int a, int b)
+        {
+            Random random = new Random();
+            int[,] arr2 = new int[a, b];
+            
+            for(int i = 0; i < a; i++)
+            {
+                for(int j = 0; j < b; j++)
+                {
+                    arr2[i, j] = random.Next(0, 10);
+                }
+            }
+            return arr2;
+        }
+
         static void Main(string[] args)
         {
-            MyMath myMath = new MyMath();
-            for(int i = 0; i < 3; i++)
+            int[] nArray;
+            int[,] nArray2;
+
+            nArray = CA1(6);
+            nArray2 = CA2(3, 5);
+
+            Console.WriteLine("nArray의 1차원 배열 출력");
+            for(int i = 0; i < nArray.Length; i++)
             {
-                Console.WriteLine("정수 입력");
-                int x = int.Parse(Console.ReadLine());
-                Console.WriteLine("정수형 Abs()호출 : {0}", myMath.Abs(x));
-                Console.WriteLine();
+                Console.Write(nArray[i] + " ");
+            }
+            Console.WriteLine();
 
-                Console.WriteLine("실수 입력");
-                double y = double.Parse(Console.ReadLine());
-                Console.WriteLine("실수형 Abs()호출 : {0}", myMath.Abs(y));
-                Console.WriteLine();
-
-                Console.WriteLine("실수(decimal) 입력");
-                decimal z = decimal.Parse(Console.ReadLine());
-                Console.WriteLine("실수(decimal)형 Abs()호출 : {0}", myMath.Abs(z));
+            Console.WriteLine("nArray2의 2차원 배열 출력");
+            for(int i = 0; i < nArray2.GetLength(0); i++)
+            {
+                for(int j = 0; j < nArray2.GetLength(1); j++)
+                {
+                    Console.Write(nArray2[i, j] + " ");
+                }
                 Console.WriteLine();
             }
         }

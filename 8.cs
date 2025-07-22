@@ -1,4 +1,4 @@
-﻿/* 임의의 정수를 사용해서 다음과 같은 숫자 맞추기 코드를 만들어 보세요 */
+﻿/* 상위 클래스의 접근제한 */
 
 using System;
 using System.Collections.Generic;
@@ -6,35 +6,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day6
 {
+    class A
+    {
+        private char a = 'A';
+        protected char b = 'B';
+        public char c = 'C';
+
+        private void printA()
+        {
+            Console.WriteLine("private");
+        }
+        protected void printB()
+        {
+            Console.WriteLine("protected");
+        }
+        public void printC()
+        {
+            Console.WriteLine("public");
+        }
+    }
+
+    class B : A
+    {
+        public void print()
+        {
+            Console.WriteLine("a : private는 호출 안됨, b : {0}, c : {1}", base.b, base.c);
+            //printA(); //호출 불가능 private
+
+            base.printB();
+            base.printC();
+        }
+    }
+
     internal class _8
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
-
-            int temp = random.Next(1, 50);
-
-            while (true)
-            {
-                Console.WriteLine("숫자를 입력하세요.");
-                int read = int.Parse(Console.ReadLine());
-
-                if (temp == read)
-                {
-                    Console.WriteLine("정답입니다!");
-                    break;
-                }
-                else if (temp > read)
-                {
-                    Console.WriteLine("{0}보다는 큰 숫자입니다.", read);
-                }
-                else
-                {
-                    Console.WriteLine("{0}보다는 작은 숫자입니다.", read);
-                }
-            }
+            B test = new B();
+            //test.b = 'b'; // protected로 선언되어 있는 것은 클래스 내부, 즉 클래스 B까지만 접근 가능
+            test.c = 'c';
+            //test.printB();    // protected
+            test.printC();
+            test.print();   // print()를 통한 char b, printB(), printC() 호출
         }
     }
 }

@@ -1,51 +1,34 @@
-﻿/* this생성자 호출 */
+﻿/* 피보나치 수로 재귀 메소드 만들기 n > 1일 때 자기 자신을 계속 사용 */
 
 using System;
 
-namespace day5
+namespace day6
 {
+    class Fibonacci
+    {
+        public static long Get(int n)  //피보나치 수는 기하급수적으로 커지므로 long자료형을 사용
+        {
+            if (n < 0)  //종료 조건
+            {
+                return 0;
+            }
+            if (n == 1) //종료 조건
+            {
+                return 1;
+            }
+
+            return Get(n - 1) + Get(n - 2);
+        }
+    }
     internal class Program
     {
-        class MyClass
-        {
-            int a, b, c;
-
-            public MyClass()
-            {
-                this.a = 5425;
-                Console.WriteLine("MyClass()");
-            }
-
-            public MyClass(int b) : this()
-            {
-                this.b = b;
-                Console.WriteLine("MyClass({0})", b);
-            }
-            public MyClass(int b, int c) : this(b)
-            {
-                this.c = c;
-                Console.WriteLine("MyClass({0}, {1})", b, c);
-            }
-
-            public void printFields()
-            {
-                Console.WriteLine("a : {0}, b : {1}, c : {2}", a, b, c);
-            }
-
-        }
-
         static void Main(string[] args)
         {
-            MyClass a = new MyClass();
-            a.printFields();
-            Console.WriteLine();
-
-            MyClass b = new MyClass(1); // new MyClass(b:1);
-            b.printFields();
-            Console.WriteLine();
-
-            MyClass c = new MyClass(10, 20);    // new MyClass(b:10, c:20);
-            c.printFields();
+            Console.WriteLine(Fibonacci.Get(1));
+            Console.WriteLine(Fibonacci.Get(2));
+            Console.WriteLine(Fibonacci.Get(3));
+            Console.WriteLine(Fibonacci.Get(4));
+            Console.WriteLine(Fibonacci.Get(5));
         }
     }
 }

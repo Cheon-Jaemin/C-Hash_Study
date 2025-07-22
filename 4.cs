@@ -1,5 +1,5 @@
-﻿/* List 클래스 (문자열) 
- 리스트의 요소값을 주어진 범위 안에서 추출하기 (GetRange) */
+﻿/* 메소드 오버로딩을 이용하여 다음의 결과가 도출되도록 메소드를 선언하고 
+ * 코드를 완성하시오 단 Main과 같은 클래스 안에 메소드 선언하시오 */
 
 using System;
 using System.Collections.Generic;
@@ -7,28 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day6
 {
     internal class _4
     {
+        static int Plus(int a, int b)
+        {
+            Console.WriteLine("Calling int Plus(int, int)");
+            return (a + b);
+        }
+        static int Plus(int a, int b, int c)
+        {
+            Console.WriteLine("Calling int Plus(int, int, int)");
+            return (a + b + c);
+        }
+        static double Plus(double a, double b)
+        {
+            Console.WriteLine("Calling int Plus(double, double)");
+            return (a + b);
+        }
+        static double Plus(int a, double b)
+        {
+            Console.WriteLine("Calling int Plus(int, double)");
+            return (a + b);
+        }
+
         static void Main(string[] args)
         {
-            List<string> rivers = new List<string>(new string[]
-            {
-                "signals",
-                "math",
-                "express",
-                "electro",
-                "photonics"
-            });
+            Console.WriteLine(Plus(1, 2));
+            Console.WriteLine(Plus(1, 2, 3));
 
-            List<string> range = rivers.GetRange(0, 3); 
-            // GetRange(인덱스번호, 추출하고싶은 개수)
-
-            foreach (string river in range) 
-            {
-                Console.WriteLine(river);
-            }
+            Console.WriteLine(Plus(1.0, 2.4));
+            Console.WriteLine(Plus(1, 2.4));
         }
     }
 }

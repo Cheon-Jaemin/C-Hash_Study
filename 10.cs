@@ -1,4 +1,4 @@
-﻿/* 인스턴스 메소드 (반환형이 있고 매개변수가 있는 메소드) */
+﻿/* 부모 생성자 호출을 명시적으로 지정할 때, base 사용 */
 
 using System;
 using System.Collections.Generic;
@@ -6,24 +6,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
-{
+namespace day6
+{ 
     internal class _10
     {
-        class Test
+        class Parent
         {
-            public int Power(int x)
+            public Parent() 
             {
-                return (x * x);
+                Console.WriteLine("부모 생성자");
+            }
+        }
+
+        class Child : Parent
+        {
+            public Child() : base()
+            {
+                Console.WriteLine("자식 생성자");
             }
         }
 
         static void Main(string[] args)
         {
-            Test test = new Test();
-            Console.WriteLine("정수 한개 입력하시오");
-            int x = int.Parse(Console.ReadLine());
-            Console.WriteLine("결과 : {0}", test.Power(x));
+            Child childB = new Child();
         }
     }
 }
