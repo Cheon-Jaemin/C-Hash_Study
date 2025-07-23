@@ -1,4 +1,4 @@
-﻿/* 메모화 Dictionary클래스 */
+﻿/* 추상클래스의 역할 */
 
 using System;
 using System.Collections.Generic;
@@ -6,43 +6,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day6
+namespace day7
 {
-    class Fibonacci
+    public abstract class Animal
     {
-        private static Dictionary<int, long> memo = new Dictionary<int, long>();
-        public static long Get(int i)
-        {
-            //기본값
-            if (i < 0)
-            {
-                return 0;
-            }
-            if(i == 1)
-            {
-                return 1;
-            }
+        public abstract void Sound();   //공통사항
+    }
 
-            //이미 계산했던 값인지 확인
-            if(memo.ContainsKey(i))
-            {
-                return memo[i];
-            }
-            else
-            {
-                //계산하지 않았다면 계산
-                long value = Get(i - 2) + Get(i - 1);
-                memo[i] = value;
-                return value;
-            }
+    public class Dog : Animal 
+    {
+        public override void Sound()
+        {
+            Console.WriteLine("왈왈");
         }
     }
+    public class Cat : Animal
+    {
+        public override void Sound()
+        {
+            Console.WriteLine("야옹");
+        }
+    }
+
     internal class _2
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
-            Console.WriteLine(Fibonacci.Get(40));
-            Console.WriteLine(Fibonacci.Get(90));
+            Animal dog = new Dog();
+            //Animal dog = new Animal();  //인스턴스 생성불가
+            dog.Sound();
+            Animal cat = new Cat();
+            cat.Sound();
         }
     }
 }

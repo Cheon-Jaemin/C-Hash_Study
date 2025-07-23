@@ -1,34 +1,34 @@
-﻿/* 피보나치 수로 재귀 메소드 만들기 n > 1일 때 자기 자신을 계속 사용 */
+﻿/* 같은 이름으로 멤버를 만들어 부모의 멤버 숨기기(new 키워드) */
 
 using System;
 
-namespace day6
+namespace day7
 {
-    class Fibonacci
+    class Parent
     {
-        public static long Get(int n)  //피보나치 수는 기하급수적으로 커지므로 long자료형을 사용
+        public int var = 2783;
+        public virtual void Method()
         {
-            if (n < 0)  //종료 조건
-            {
-                return 0;
-            }
-            if (n == 1) //종료 조건
-            {
-                return 1;
-            }
+            Console.WriteLine("부모");
+        }
+    }
 
-            return Get(n - 1) + Get(n - 2);
+    class Child : Parent
+    {
+        public string var = "hiding";
+        public new void Method()    //오버라이딩 할 때 자식클래스에서 new키워드를 사용하게 되면 자식클래스의 메소드가 가려지게 됨
+        {
+            Console.WriteLine("자식");
         }
     }
     internal class Program
     {
+        
         static void Main(string[] args)
         {
-            Console.WriteLine(Fibonacci.Get(1));
-            Console.WriteLine(Fibonacci.Get(2));
-            Console.WriteLine(Fibonacci.Get(3));
-            Console.WriteLine(Fibonacci.Get(4));
-            Console.WriteLine(Fibonacci.Get(5));
+            Parent child = new Child(); //부모로 위장한 자식
+            Console.WriteLine(child.var);
+            child.Method();
         }
     }
 }

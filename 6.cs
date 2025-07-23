@@ -1,5 +1,4 @@
-﻿/* 사용자로부터 2개의 정수를 입력받아 서로 값을 Swap하는 메소드를 호출하여
- * 입력받은 2개의 정수가 Swap되었는지 확인하기 */
+﻿/* IComparable 인터페이스(비교할 때 사용하는 규약) */
 
 using System;
 using System.Collections.Generic;
@@ -7,28 +6,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day6
+namespace day7
 {
     internal class _6
     {
-        static void Swap(ref int x, ref int y)
+        class Interface
         {
-            int temp;
-            temp = x;
-            x = y;
-            y = temp;
-        }
+            class Product : IComparable
+            {
+                public string Name { get; set; }
+                public int Price { get; set; }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("정수 2개 입력");
-            int x = int.Parse(Console.ReadLine());
-            int y = int.Parse(Console.ReadLine());
+                public int CompareTo(object obj)
+                {
+                    return this.Name.CompareTo((obj as Product).Name);
+                    //obj를 product로 형변환하기
+                }
 
-            Console.WriteLine("Swap이 일어나기 전 a = {0}, b = {1}", x, y);
+                public override string ToString()
+                {
+                    return Name + " : " + Price + "원";
+                }
+            }
+            static void Main(string[] args)
+            {
+                List<Product> list = new List<Product>()
+                {
+                    new Product() { Name = "마우스패드", Price = 1500 },
+                    new Product() { Name = "마우스", Price = 14000 },
+                    new Product() { Name = "키보드", Price = 40000 },
+                    new Product() { Name = "웹캠", Price = 35000 },
+                    new Product() { Name = "Mic", Price = 1900 },
+                    new Product() { Name = "Usb", Price = 5000 },
+                    new Product() { Name = "리모컨", Price = 6000 },
+                };
+                list.Sort();
 
-            Swap(ref x, ref y);
-            Console.WriteLine("Swap이 일어난 후 a = {0}, b = {1}", x, y);
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
     }
 }

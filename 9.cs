@@ -1,4 +1,4 @@
-﻿/* base 키워드의 사용 */
+﻿/* 예외 던지기 throw */
 
 using System;
 using System.Collections.Generic;
@@ -6,27 +6,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day6
+namespace day7
 {
-    class Parent
-    {
-        protected string name = "부모";
-    }
-
-    class Child : Parent    //파생 클래스 선언
-    {
-        public string name = "자식";  //자식클래스의 생성자 호출(부모클래스의 생성자 호출)
-        public Child()
-        {
-            Console.WriteLine("base.name = {0}", base.name);
-            Console.WriteLine("this.name = {0}", this.name);
-        }
-    }
     internal class _9
     {
+        static void DoSomething()
+        {
+            Random random = new Random();
+            int num = random.Next(0, 100);
+
+            if(num < 80)
+            {
+                Console.WriteLine("현재 온도는 {0}입니다.", num);
+            }
+            else
+            {
+                throw new Exception($"위험! 온도가 높습니다. : {num}");
+            }
+        }
+        
         static void Main(string[] args)
         {
-            Child childObj = new Child();   //자식클래스의 객체 생성(자식클래스의 생성자 호출)
+            try
+            {
+                while (true)
+                {
+                    DoSomething();
+                    System.Threading.Thread.Sleep(1000);    //1초 지연
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("시스템을 종료합니다.");
+            }
         }
     }
 }

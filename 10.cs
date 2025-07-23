@@ -1,4 +1,4 @@
-﻿/* 부모 생성자 호출을 명시적으로 지정할 때, base 사용 */
+﻿/* 예외 되 던지기 */
 
 using System;
 using System.Collections.Generic;
@@ -6,29 +6,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day6
-{ 
+namespace day7
+{
     internal class _10
     {
-        class Parent
+        static int Divide(int divisor, int dividend)
         {
-            public Parent() 
+            try
             {
-                Console.WriteLine("부모 생성자");
+                Console.WriteLine("Divide() 시작");
+                return divisor / dividend;
             }
-        }
-
-        class Child : Parent
-        {
-            public Child() : base()
+            catch (DivideByZeroException e)
             {
-                Console.WriteLine("자식 생성자");
+                Console.WriteLine("Divide() 예외 발생");
+                throw e;    //예외처리 후 호출한 쪽으로 되 던지기
+            }
+            finally // 되 던지기, return 전 필수적으로 수행
+            {
+                Console.WriteLine("Divide() 끝");
             }
         }
 
         static void Main(string[] args)
         {
-            Child childB = new Child();
+            try
+            {
+                Console.Write("제수를 입력하세요. : ");
+                string temp = Console.ReadLine();
+                int divisor = Convert.ToInt32(temp);
+
+                Console.Write("피제수를 입력하세요. : ");
+                temp = Console.ReadLine();
+                int dividend = Convert.ToInt32(temp);
+
+                Console.WriteLine("{0} / {1} = {2}", divisor, dividend, Divide(divisor, dividend));
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine("에러 : {0}", e.Message);
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("에러 : {0}", e.Message);
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine("에러 : {0}", e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("프로그램을 종료합니다.");
+            }
         }
     }
 }

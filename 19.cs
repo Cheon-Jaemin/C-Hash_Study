@@ -1,26 +1,54 @@
-﻿/* 선택적 매개변수 */
+﻿/* 정렬 - 배열의 정렬 */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day7
 {
     internal class _19
     {
-        static void PrintProfile(string name = "이름없음", string phone = "")
+        class Fruit : IComparable
         {
-            Console.WriteLine("Name : {0}, Phone : {1}", name, phone);
+            string name;
+            int price;
+
+            public Fruit(string name, int price)
+            {
+                this.name = name;
+                this.price = price;
+            }
+
+            public int CompareTo(object obj)
+            {
+                Fruit fruit = (Fruit)obj;
+
+                return this.price.CompareTo(fruit.price);
+            }
+            public override string ToString()
+            {
+                return string.Format("과일명 : {0} 가격 : {1}", this.name, this.price);
+            }
         }
 
         static void Main(string[] args)
         {
-            PrintProfile("태연");
-            PrintProfile("윤아", "010-123-456");
-            PrintProfile(name : "유리");
-            PrintProfile(phone : "010-780-7897");
+            ArrayList list = new ArrayList();
+            list.Add(new Fruit("Apple", 100));
+            list.Add(new Fruit("Banana", 50));
+            list.Add(new Fruit("Kiwi", 500));
+            list.Add(new Fruit("Cherry", 10));
+            list.Add(new Fruit("Melon", 800));
+            list.Add(new Fruit("Lemon", 200));
+
+            list.Sort();
+            foreach(Fruit fruit in list)
+            {
+                Console.WriteLine(fruit);
+            }
         }
     }
 }

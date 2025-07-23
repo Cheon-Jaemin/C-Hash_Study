@@ -1,37 +1,40 @@
-﻿/* 가변길이 매개변수 params */
+﻿/* 컬렉션 Hashtable */
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day5
+namespace day7
 {
     internal class _17
     {
-        static int Sum(params int[] args)   // params 가변길이 매개변수 제어
-        {
-            Console.Write("Summing...");
-            int sum = 0;
-
-            for (int i = 0; i < args.Length; i++)
-            {
-                if(i > 0)
-                {
-                    Console.Write(", ");
-                }
-                Console.Write(args[i]);
-                sum = (sum + args[i]);
-            }
-            Console.WriteLine();
-            return sum;
-        }
-
         static void Main(string[] args)
         {
-            int sum = Sum(3, 4, 5, 6, 7, 8, 9, 10, 14, 30); //Sum() 메소드 호출하면서 매개변수 전달 
-            Console.WriteLine("Sum : {0}", sum);
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add("사과", "apple");
+            hashtable.Add("토마토", "tomato");
+            hashtable["감자"] = "potato";
+            hashtable["복숭아"] = "peach";
+
+            Console.WriteLine("hashtable의 해시코드 {0}", hashtable.GetHashCode());
+            foreach (object obj in hashtable.Keys) 
+            {
+                Console.WriteLine("{0} : {1}", obj, hashtable[obj]);
+            }
+
+            Hashtable hashtable1 = new Hashtable(); //새로운 객체 생성
+            hashtable1.Add("사과", "apple");
+            hashtable1.Add("토마토", "tomato");
+            hashtable1["감자"] = "potato";
+            hashtable1["복숭아"] = "peach";
+            
+            Console.WriteLine("hashtable1의 해시코드 {0}", hashtable1.GetHashCode());
+            foreach (object obj in hashtable1.Keys) 
+            {
+                Console.WriteLine("{0} : {1}", obj, hashtable1[obj]);
+            }
         }
     }
 }

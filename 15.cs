@@ -1,21 +1,28 @@
-﻿/* 2025/ 07/ 22 (화) 아침퀴즈 2번 */
+﻿/* 컬렉션 Queue */
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day6
+namespace day7
 {
     internal class _15
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
-            for(int i = 0; i < 5; i++)
+            Queue que = new Queue();
+
+            que.Enqueue(1);
+            que.Enqueue(2);
+            que.Enqueue(3);
+            que.Enqueue(4);
+            que.Enqueue(5);
+
+            while (que.Count > 0)
             {
-                Console.WriteLine("실수입력 : {0}", Math.Round(random.NextDouble(), 3));
+                Console.Write("{0} ", que.Dequeue());   //FIFO
             }
         }
     }
