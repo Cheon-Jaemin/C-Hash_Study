@@ -1,4 +1,4 @@
-﻿/* 추상클래스 역할 */
+﻿/* 멀티 델리게이트 */
 
 using System;
 using System.Collections.Generic;
@@ -6,39 +6,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day7
+namespace day8
 {
-    public abstract class Template
-    {
-        public void Execute()
-        {
-            Step1();    //알고리즘의 일부 단계
-            Step2();    //패턴은 알고리즘의 구조를 메소드에 정의하고
-        }               //알고리즘의 일부 단계는 서브 클래스에서 구현하도록 함
-        
-        //추상메소드 -> 서브클래스에서 구현해야 할 단계
-        protected abstract void Step1();
-        protected abstract void Step2();
-    }
+    delegate void ThereIsFire(string location); //델리게이트 선언, 클래스 외부에 선언할 수 있음
 
-    public class Algorithm : Template
+    class Firestation
     {
-        protected override void Step1()
+        public static void Call119(string location)
         {
-            Console.WriteLine("Step1 구현");
+            Console.WriteLine("소방서죠? 불이 났어요! 주소는 {0}", location);   // 첫번째 호출됨
         }
-
-        protected override void Step2() 
+        public static void ShotOut(string location)
         {
-            Console.WriteLine("Step2 구현");
+            Console.WriteLine("피하세요! {0}에 불이 났어요!", location);   
+        }
+        public static void Escape(string location)
+        {
+            Console.WriteLine("{0}에서 나갑시다!", location);
         }
     }
     internal class _3
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
-            Template template = new Algorithm();
-            template.Execute();
+            ThereIsFire fire = new ThereIsFire(Firestation.Call119);    //델리게이트 생성 Call119 호출
+            fire += Firestation.ShotOut;
+            fire += Firestation.Escape;
+
+            fire("우리집");    //델리게이트를 통한 메소드 호출, 동시 호출
         }
     }
 }

@@ -1,34 +1,30 @@
-﻿/* 같은 이름으로 멤버를 만들어 부모의 멤버 숨기기(new 키워드) */
+﻿/* 델리게이트 Delegate */
 
 using System;
 
-namespace day7
+namespace day8
 {
-    class Parent
-    {
-        public int var = 2783;
-        public virtual void Method()
-        {
-            Console.WriteLine("부모");
-        }
-    }
-
-    class Child : Parent
-    {
-        public string var = "hiding";
-        public new void Method()    //오버라이딩 할 때 자식클래스에서 new키워드를 사용하게 되면 자식클래스의 메소드가 가려지게 됨
-        {
-            Console.WriteLine("자식");
-        }
-    }
     internal class Program
     {
-        
+        delegate int TypeF(int a, int b); // 델리게이트 선언, 함수포인터 같은 역할
+                                          // 델리게이트가 참조할 수 있도록 같은 형태의 메서드 구현
+        static int Plus(int x, int y) 
+        { 
+            return x + y; 
+        }
+        static int Minus(int x, int y) 
+        { 
+            return x - y; 
+        }
         static void Main(string[] args)
         {
-            Parent child = new Child(); //부모로 위장한 자식
-            Console.WriteLine(child.var);
-            child.Method();
+            TypeF delgateValue = new TypeF(Plus);//델리게이트의 인스턴스를 만들때도 new연산자 필요(메서드 전달)
+            int result = delgateValue(20, 10); // 델리게이트를 통해 메서드 호출
+            Console.WriteLine(result);
+            
+            TypeF delgateValue2 = Minus; // 델리게이트에 메서드 전달, (1)메서드 이름을 사용한 초기화 방법
+            int result2 = delgateValue2(20, 10); // 델리게이트를 통해
+            Console.WriteLine(result2); // 메서드 호출
         }
     }
 }

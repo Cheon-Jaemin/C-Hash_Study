@@ -1,67 +1,35 @@
-﻿/* 인터페이스와 추상클래스의 상속을 통한 실습 */
+﻿/* 람다식 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Generic;   //제네릭 컬렉션(List<T> 등)을 사용하기 위해 필요
+using System.Linq;  //LINQ(Language Integrated Query) 메서드를 사용하기 위해 필요
+
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day7
+namespace day8
 {
-    interface IFightable // 공격기능이 있는 마린으로만 인터페이스를 선언한 뒤 ctrl+. 단축키를 누르면 메뉴가 보임(뒷장)
-    {
-        void attack();
-    }
-
-    abstract class Unit // 유닛의 공통된 상위 속성을 가진 부모 클래스(추상클래스)
-    {
-        public abstract void move(int x, int y);    // 마린클래스와 드롭쉽클래스의 움직임이
-        void stop() { }                             // 달라 하위 클래스에서 구현
-    }
-
-    class Marine : Unit, IFightable // 추상 클래스와 인터페이스 상속, Marine은 Ifightable인터페이스가 정한 규약에
-                                    //따라야 함
-    {
-        public override void move(int x, int y) //부모클래스로부터 오버라이드(부모 메서드 재정의)
-        {
-            Console.WriteLine("Marine Move [x : {0}, y : {1}]", x, y);
-        }
-        public void attack()    //attack()메서드, 인터페이스의 멤버에 대한 무조건적인 오라버라이딩으로 메서드
-                                //구현
-
-        {
-            Console.WriteLine("Marine이 공격합니다.");
-        }
-        public void stimPack()
-        {
-            Console.WriteLine("스팀팩을 분사합니다.");
-        }
-    }
-
-    class Dropship : Unit
-    {
-        public override void move(int x, int y)
-        {
-            Console.WriteLine("Dropship Move [x : {0}, y : {1}]", x, y);
-        }
-        public void load()
-        {
-            Console.WriteLine("수송기가 착륙했습니다.");
-        }
-    }
     internal class _4
     {
         static void Main(string[] args)
         {
-            Marine marine1 = new Marine();
-            //Ifightable marine = new Marine(); //인스턴스는 생성하지 못하지만 참조는 가능
-            marine1.move(300, 300);
-            marine1.attack();
-            marine1.stimPack();
-            
-            Dropship dropship1 = new Dropship();
-            dropship1.move(200, 200);
-            dropship1.load();
+            // 정수형 리스트(List<int>)를 생성하고 초기화
+            // 이 리스트는 1부터 6까지의 정수로 구성
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
+
+            // LINQ의 Where 메소드를 사용하여 짝수만 필터링
+            // n => n % 2 == 0 은 람다식으로, n을 매개변수로 각 요소 n이 2로 나누어 떨어지는지 확인
+            //조건을 만족하는 요소만 새로운 시퀀스에 포함
+            var evenNumbers = numbers.Where(n => n % 2 == 0);
+
+            //콘솔에 텍스트를 출력
+            Console.WriteLine("짝수 목록 : ");
+
+            //필터링된 짝수 리스트를 반복하면서 각 값을 출력
+            foreach(var number in evenNumbers)
+            {
+                Console.WriteLine(number);
+            }
         }
     }
 }

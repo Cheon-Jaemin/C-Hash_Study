@@ -1,62 +1,42 @@
-﻿/* 예외 되 던지기 */
+﻿/* 스레드 - 폴링 */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
-namespace day7
+namespace day8
 {
     internal class _10
     {
-        static int Divide(int divisor, int dividend)
-        {
-            try
-            {
-                Console.WriteLine("Divide() 시작");
-                return divisor / dividend;
-            }
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine("Divide() 예외 발생");
-                throw e;    //예외처리 후 호출한 쪽으로 되 던지기
-            }
-            finally // 되 던지기, return 전 필수적으로 수행
-            {
-                Console.WriteLine("Divide() 끝");
-            }
-        }
-
+        static bool myFlag = false;
         static void Main(string[] args)
         {
-            try
-            {
-                Console.Write("제수를 입력하세요. : ");
-                string temp = Console.ReadLine();
-                int divisor = Convert.ToInt32(temp);
+            Thread t = new Thread(Func);
+            
+            t.Start();  //메인스레드는 서브스레드를 시작해주고 3까지 출력해준 후 flag를 true로 만들어 줌
 
-                Console.Write("피제수를 입력하세요. : ");
-                temp = Console.ReadLine();
-                int dividend = Convert.ToInt32(temp);
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(i + 1);
+                Thread.Sleep(100);
+            }
+            myFlag = true;
+            Console.WriteLine("메인스레드 종료");
+        }
 
-                Console.WriteLine("{0} / {1} = {2}", divisor, dividend, Divide(divisor, dividend));
-            }
-            catch (DivideByZeroException e)
+        private static void Func()  //서브스레드 만들어줌 
+        {
+            while (true) // 서브스레드에서 돌아갈 메소드를 무한루프화 시키고 조건이 만족됐는지 체크
             {
-                Console.WriteLine("에러 : {0}", e.Message);
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine("에러 : {0}", e.Message);
-            }
-            catch (OverflowException e)
-            {
-                Console.WriteLine("에러 : {0}", e.Message);
-            }
-            finally
-            {
-                Console.WriteLine("프로그램을 종료합니다.");
+                if (myFlag)
+                {
+                    Console.WriteLine("폴링 성공");
+                    Console.WriteLine("서브 스레드 종료");
+                    break;
+                }
+                Thread.Sleep(100);
             }
         }
     }

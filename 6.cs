@@ -1,52 +1,36 @@
-﻿/* IComparable 인터페이스(비교할 때 사용하는 규약) */
+﻿/* Thread 멀티스레드 */
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
-namespace day7
+namespace day8
 {
     internal class _6
     {
-        class Interface
+        static void Main(string[] args)
         {
-            class Product : IComparable
+            Thread t = new Thread(WriteY);  // thread 생성, 매개변수는 스레드가 실행할 메소드
+
+            t.Start();
+            for(int i = 0; i < 3; i++)
             {
-                public string Name { get; set; }
-                public int Price { get; set; }
-
-                public int CompareTo(object obj)
-                {
-                    return this.Name.CompareTo((obj as Product).Name);
-                    //obj를 product로 형변환하기
-                }
-
-                public override string ToString()
-                {
-                    return Name + " : " + Price + "원";
-                }
+                Console.WriteLine("메인 스레드 : {0}", i + 1);
+                Thread.Sleep(100);
             }
-            static void Main(string[] args)
+            Console.WriteLine("메인 스레드 종료");
+        }
+
+        private static void WriteY() 
+        {
+            for(int i = 0; i < 10; i++) //메인 스레드가 종료되어도 서브스레드가 10까지 센 뒤 프로그램 종료
             {
-                List<Product> list = new List<Product>()
-                {
-                    new Product() { Name = "마우스패드", Price = 1500 },
-                    new Product() { Name = "마우스", Price = 14000 },
-                    new Product() { Name = "키보드", Price = 40000 },
-                    new Product() { Name = "웹캠", Price = 35000 },
-                    new Product() { Name = "Mic", Price = 1900 },
-                    new Product() { Name = "Usb", Price = 5000 },
-                    new Product() { Name = "리모컨", Price = 6000 },
-                };
-                list.Sort();
-
-                foreach (var item in list)
-                {
-                    Console.WriteLine(item);
-                }
+                Console.WriteLine("스레드 : {0}", i + 1);
+                Thread.Sleep(100);
             }
+            Console.WriteLine("서브 스레드 종료");
         }
     }
 }
