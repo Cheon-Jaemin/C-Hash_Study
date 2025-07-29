@@ -1,6 +1,6 @@
 ﻿namespace WinForm2
 {
-    partial class Form3
+    partial class Form8
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
             SuspendLayout();
             // 
-            // Form3
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(221, 58);
+            button1.Name = "button1";
+            button1.Size = new Size(206, 304);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // Form8
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 192, 255);
             ClientSize = new Size(660, 450);
-            KeyPreview = true;
-            Name = "Form3";
-            Text = "Form3";
-            KeyDown += Form3_KeyDown;
+            Controls.Add(button1);
+            Name = "Form8";
+            Text = "Form8";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
     }
 }

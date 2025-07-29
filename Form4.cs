@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FirstFormApplication
+namespace WinForm2
 {
     public partial class Form4 : Form
     {
@@ -17,47 +17,31 @@ namespace FirstFormApplication
             InitializeComponent();
         }
 
-        private void bt_Plus_Click(object sender, EventArgs e)
+        private void Form4_KeyDown(object sender, KeyEventArgs e)
         {
-            double num1 = double.Parse(text_Num1.Text);
-            double num2 = double.Parse(text_Num2.Text);
-
-            double result = num1 + num2;
-            text_Result.Text = result.ToString();
-        }
-
-        private void bt_Minus_Click(object sender, EventArgs e)
-        {
-            double num1 = double.Parse(text_Num1.Text);
-            double num2 = double.Parse(text_Num2.Text);
-
-            double result = num1 - num2;
-            text_Result.Text = result.ToString();
-        }
-
-        private void bt_Multi_Click(object sender, EventArgs e)
-        {
-            double num1 = double.Parse(text_Num1.Text);
-            double num2 = double.Parse(text_Num2.Text);
-
-            double result = num1 * num2;
-            text_Result.Text = result.ToString();
-        }
-
-        private void bt_Division_Click(object sender, EventArgs e)
-        {
-            double num1 = double.Parse(text_Num1.Text);
-            double num2 = double.Parse(text_Num2.Text);
-
-            double result = num1 / num2;
-            text_Result.Text = result.ToString();
-        }
-
-        private void bt_Clear_Click(object sender, EventArgs e)
-        {
-            text_Num1.Text = "";
-            text_Num2.Text = "";
-            text_Result.Text = "";
+            switch(e.KeyCode)
+            {
+                case Keys.A:
+                    {
+                        MessageBox.Show("알파벳 A");
+                        break;
+                    }
+                case Keys.D0:
+                    {
+                        MessageBox.Show("숫자 0");
+                        break;
+                    }
+                case Keys.F1:
+                    {
+                        MessageBox.Show("Function키");
+                        break;
+                    }
+                case Keys.Enter:
+                    {
+                        MessageBox.Show("Enter 키입니다.");
+                        break;
+                    }
+            }
         }
     }
 }

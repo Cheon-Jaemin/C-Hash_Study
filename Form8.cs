@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace WinForm2
 {
-    public partial class Form3 : Form
+    public partial class Form8 : Form
     {
-        public Form3()
+        public Form8()
         {
             InitializeComponent();
-        }
-
-        private void Form3_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == (Keys.A | Keys.Shift | Keys.Control)) 
-            {
-                MessageBox.Show("A + Shift + Ctrl");
-            }
         }
     }
 }

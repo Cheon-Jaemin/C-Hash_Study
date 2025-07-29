@@ -1,4 +1,4 @@
-﻿namespace FirstFormApplication
+﻿namespace WinForm2
 {
     partial class Form6
     {
@@ -28,94 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            richTextBox1 = new RichTextBox();
-            bt_For = new Button();
-            bt_Foreach = new Button();
-            bt_While = new Button();
-            bt_DoWhile = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
-            // richTextBox1
+            // label1
             // 
-            richTextBox1.Location = new Point(42, 12);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(409, 405);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
+            label1.AutoSize = true;
+            label1.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(27, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 21);
+            label1.TabIndex = 0;
+            label1.Text = "이벤트1";
             // 
-            // bt_For
+            // label2
             // 
-            bt_For.BackColor = SystemColors.ControlDark;
-            bt_For.Font = new Font("맑은 고딕", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            bt_For.ForeColor = SystemColors.ControlText;
-            bt_For.Location = new Point(482, 12);
-            bt_For.Name = "bt_For";
-            bt_For.Size = new Size(133, 77);
-            bt_For.TabIndex = 1;
-            bt_For.Text = "For 문";
-            bt_For.UseVisualStyleBackColor = false;
-            bt_For.Click += bt_For_Click;
+            label2.AutoSize = true;
+            label2.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(27, 130);
+            label2.Name = "label2";
+            label2.Size = new Size(67, 21);
+            label2.TabIndex = 0;
+            label2.Text = "이벤트2";
             // 
-            // bt_Foreach
+            // label3
             // 
-            bt_Foreach.BackColor = SystemColors.ControlDark;
-            bt_Foreach.Font = new Font("맑은 고딕", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            bt_Foreach.ForeColor = SystemColors.ControlText;
-            bt_Foreach.Location = new Point(482, 114);
-            bt_Foreach.Name = "bt_Foreach";
-            bt_Foreach.Size = new Size(133, 81);
-            bt_Foreach.TabIndex = 1;
-            bt_Foreach.Text = "Foreach 문";
-            bt_Foreach.UseVisualStyleBackColor = false;
-            bt_Foreach.Click += bt_Foreach_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(27, 219);
+            label3.Name = "label3";
+            label3.Size = new Size(67, 21);
+            label3.TabIndex = 0;
+            label3.Text = "이벤트3";
             // 
-            // bt_While
+            // label4
             // 
-            bt_While.BackColor = SystemColors.ControlDark;
-            bt_While.Font = new Font("맑은 고딕", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            bt_While.ForeColor = SystemColors.ControlText;
-            bt_While.Location = new Point(482, 225);
-            bt_While.Name = "bt_While";
-            bt_While.Size = new Size(133, 82);
-            bt_While.TabIndex = 1;
-            bt_While.Text = "While 문";
-            bt_While.UseVisualStyleBackColor = false;
-            bt_While.Click += bt_While_Click;
+            label4.AutoSize = true;
+            label4.Location = new Point(284, 48);
+            label4.Name = "label4";
+            label4.Size = new Size(39, 15);
+            label4.TabIndex = 1;
+            label4.Text = "label4";
             // 
-            // bt_DoWhile
+            // label5
             // 
-            bt_DoWhile.BackColor = SystemColors.ControlDark;
-            bt_DoWhile.Font = new Font("맑은 고딕", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            bt_DoWhile.ForeColor = SystemColors.ControlText;
-            bt_DoWhile.Location = new Point(482, 336);
-            bt_DoWhile.Name = "bt_DoWhile";
-            bt_DoWhile.Size = new Size(133, 81);
-            bt_DoWhile.TabIndex = 1;
-            bt_DoWhile.Text = "doWhile 문";
-            bt_DoWhile.UseVisualStyleBackColor = false;
-            bt_DoWhile.Click += bt_DoWhile_Click;
+            label5.AutoSize = true;
+            label5.Location = new Point(284, 212);
+            label5.Name = "label5";
+            label5.Size = new Size(39, 15);
+            label5.TabIndex = 1;
+            label5.Text = "label4";
             // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(660, 450);
-            Controls.Add(bt_DoWhile);
-            Controls.Add(bt_While);
-            Controls.Add(bt_Foreach);
-            Controls.Add(bt_For);
-            Controls.Add(richTextBox1);
+            ClientSize = new Size(499, 303);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Name = "Form6";
             Text = "Form6";
+            MouseClick += Form6_MouseClick;
+            MouseDoubleClick += Form6_MouseDoubleClick;
+            MouseDown += Form6_MouseDown;
+            MouseMove += Form6_MouseMove;
+            MouseUp += Form6_MouseUp;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private RichTextBox richTextBox1;
-        private Button bt_For;
-        private Button bt_Foreach;
-        private Button bt_While;
-        private Button bt_DoWhile;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }

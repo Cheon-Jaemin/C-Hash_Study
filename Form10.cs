@@ -10,30 +10,28 @@ using System.Windows.Forms;
 
 namespace WinForm2
 {
-    public partial class Form5 : Form
+    public partial class Form10 : Form
     {
-        public Form5()
+        public Form10()
         {
             InitializeComponent();
         }
 
-        string str = "";
-
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = str;
-            str = "";
-        }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            str += e.KeyChar;
+            double num1 = double.Parse(textBox1.Text);
+            double num2 = double.Parse(textBox2.Text);
+            double num3 = double.Parse(textBox3.Text);
+            double result = (num1 + num2 + num3) / 3;
+            textBox4.Text = string.Format("{0:f2}", result);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text = "문자를 입력하시오.";
             textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
         }
     }
 }
