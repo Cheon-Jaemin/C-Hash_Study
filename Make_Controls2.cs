@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Use_Custom_Button
+namespace Make_Control
 {
-    public partial class Form1 : Form
+    public partial class Make_Controls2 : UserControl
     {
-        public Form1()
+        public Make_Controls2()
         {
             InitializeComponent();
+        }
+
+        
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = dateTimePicker1.Value.ToString();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace WinForm3
+﻿namespace WinForm4
 {
     partial class Form4
     {
@@ -28,44 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            hScrollBar1 = new HScrollBar();
-            label1 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            pictureBox1 = new PictureBox();
+            axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             SuspendLayout();
             // 
-            // hScrollBar1
+            // pictureBox1
             // 
-            hScrollBar1.Location = new Point(21, 313);
-            hScrollBar1.Maximum = 200;
-            hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(622, 31);
-            hScrollBar1.TabIndex = 0;
-            hScrollBar1.Scroll += hScrollBar1_Scroll;
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = Properties.Resources._7279671;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(800, 450);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
-            // label1
+            // axWindowsMediaPlayer1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(308, 206);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            axWindowsMediaPlayer1.Enabled = true;
+            axWindowsMediaPlayer1.Location = new Point(12, 12);
+            axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
+            axWindowsMediaPlayer1.Size = new Size(75, 23);
+            axWindowsMediaPlayer1.TabIndex = 1;
             // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(652, 450);
-            Controls.Add(label1);
-            Controls.Add(hScrollBar1);
+            ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
+            Controls.Add(axWindowsMediaPlayer1);
             Name = "Form4";
             Text = "Form4";
+            Load += Form4_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private HScrollBar hScrollBar1;
-        private Label label1;
+        private PictureBox pictureBox1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

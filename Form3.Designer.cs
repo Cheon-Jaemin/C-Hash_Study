@@ -1,4 +1,4 @@
-﻿namespace WinForm3
+﻿namespace WinForm4
 {
     partial class Form3
     {
@@ -28,104 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            btnPlay = new Button();
+            btnStop = new Button();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // axWindowsMediaPlayer1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(35, 107);
-            label1.Name = "label1";
-            label1.Size = new Size(36, 15);
-            label1.TabIndex = 0;
-            label1.Text = "시/도";
+            axWindowsMediaPlayer1.Enabled = true;
+            axWindowsMediaPlayer1.Location = new Point(27, 68);
+            axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
+            axWindowsMediaPlayer1.Size = new Size(355, 285);
+            axWindowsMediaPlayer1.TabIndex = 0;
             // 
-            // label2
+            // btnPlay
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(215, 107);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 15);
-            label2.TabIndex = 0;
-            label2.Text = "구/군";
+            btnPlay.Font = new Font("배스킨라빈스 B", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlay.Location = new Point(415, 70);
+            btnPlay.Name = "btnPlay";
+            btnPlay.Size = new Size(227, 62);
+            btnPlay.TabIndex = 1;
+            btnPlay.Text = "재생";
+            btnPlay.UseVisualStyleBackColor = true;
+            btnPlay.Click += btnPlay_Click;
             // 
-            // label3
+            // btnStop
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(391, 107);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 15);
-            label3.TabIndex = 0;
-            label3.Text = "도로명";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "서울특별시", "경기도", "충청남도" });
-            comboBox1.Location = new Point(80, 103);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 1;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "강남구", "강서구", "강동구", "강북구" });
-            comboBox2.Location = new Point(260, 103);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(436, 102);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(135, 23);
-            textBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(581, 102);
-            button1.Name = "button1";
-            button1.Size = new Size(61, 22);
-            button1.TabIndex = 3;
-            button1.Text = "입력";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnStop.Font = new Font("배스킨라빈스 B", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnStop.Location = new Point(415, 152);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(227, 62);
+            btnStop.TabIndex = 1;
+            btnStop.Text = "정지";
+            btnStop.UseVisualStyleBackColor = true;
+            btnStop.Click += btnStop_Click;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(657, 258);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(654, 450);
+            Controls.Add(btnStop);
+            Controls.Add(btnPlay);
+            Controls.Add(axWindowsMediaPlayer1);
             Name = "Form3";
             Text = "Form3";
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private TextBox textBox1;
-        private Button button1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private Button btnPlay;
+        private Button btnStop;
     }
 }

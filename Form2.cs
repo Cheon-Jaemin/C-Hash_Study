@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm3
+namespace WinForm4
 {
     public partial class Form2 : Form
     {
@@ -16,25 +16,20 @@ namespace WinForm3
         {
             InitializeComponent();
         }
-        public Form2(string data)
-        {
-            InitializeComponent();
-            textBox1.Text = data;
-        }
-        public string TextBox1
-        {
-            set { textBox1.Text = value; }
-        }
-
-        //public void UpdateData (string data)
-        //{
-        //    textBox1.Text = data;
-        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3(this);
-            form3.Show();
+            label1.Text = "C언어 공부를 열심히 합시다.";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            label2.Text = "C++ 공부를 열심히 합시다.";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label3.Text = "C# 공부를 열심히 합시다.";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AxWMPLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm3
+namespace WinForm4
 {
     public partial class Form5 : Form
     {
@@ -17,26 +18,30 @@ namespace WinForm3
             InitializeComponent();
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void Form5_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+            PlayBackgroundMusic(@"바비 킴-02-일년을 하루같이.mp3");
+            trackBar1.Minimum = 0;
+            trackBar1.Maximum = 100;
+
+            trackBar1.Value = 50;
+        }
+        private void PlayBackgroundMusic(string filePath)
+        {
+            axWindowsMediaPlayer1.URL = filePath;
+
+            axWindowsMediaPlayer1.settings.autoStart = true;
+
+            axWindowsMediaPlayer1.settings.setMode("loop", true);
+
+            axWindowsMediaPlayer1.uiMode = "none";
+
+            axWindowsMediaPlayer1.settings.volume = 50;
         }
 
-        private void btnInit_Click(object sender, EventArgs e)
+        private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
-            textBox1.Text = "";
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            progressBar1.Value++;
-
-            if(progressBar1.Value == 100)
-            {
-                timer1.Stop();
-            }
-            textBox1.Text = progressBar1.Value.ToString();
+            axWindowsMediaPlayer1.settings.volume = trackBar1.Value;
         }
     }
 }

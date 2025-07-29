@@ -1,4 +1,4 @@
-﻿namespace WinForm3
+﻿namespace WinForm4
 {
     partial class Form9
     {
@@ -28,35 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            components = new System.ComponentModel.Container();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            toolStripMenuColor = new ToolStripMenuItem();
+            toolStripMenuFront = new ToolStripMenuItem();
+            toolStripMenuBack = new ToolStripMenuItem();
+            toolStripMenuFont = new ToolStripMenuItem();
+            button1 = new Button();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // listView1
+            // contextMenuStrip1
             // 
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(633, 426);
-            listView1.Sorting = SortOrder.Ascending;
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuColor, toolStripMenuFont });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(104, 48);
+            // 
+            // toolStripMenuColor
+            // 
+            toolStripMenuColor.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuFront, toolStripMenuBack });
+            toolStripMenuColor.Name = "toolStripMenuColor";
+            toolStripMenuColor.Size = new Size(103, 22);
+            toolStripMenuColor.Text = "Color";
+            // 
+            // toolStripMenuFront
+            // 
+            toolStripMenuFront.Name = "toolStripMenuFront";
+            toolStripMenuFront.Size = new Size(180, 22);
+            toolStripMenuFront.Text = "Front";
+            toolStripMenuFront.Click += toolStripMenuFront_Click;
+            // 
+            // toolStripMenuBack
+            // 
+            toolStripMenuBack.Name = "toolStripMenuBack";
+            toolStripMenuBack.Size = new Size(180, 22);
+            toolStripMenuBack.Text = "Back";
+            toolStripMenuBack.Click += toolStripMenuBack_Click;
+            // 
+            // toolStripMenuFont
+            // 
+            toolStripMenuFont.Name = "toolStripMenuFont";
+            toolStripMenuFont.Size = new Size(103, 22);
+            toolStripMenuFont.Text = "Font";
+            toolStripMenuFont.Click += toolStripMenuFont_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("배스킨라빈스 B", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(196, 213);
+            button1.Name = "button1";
+            button1.Size = new Size(259, 153);
+            button1.TabIndex = 1;
+            button1.Text = "버튼";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Form9
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(657, 450);
-            Controls.Add(listView1);
+            ClientSize = new Size(632, 450);
+            ContextMenuStrip = contextMenuStrip1;
+            Controls.Add(button1);
             Name = "Form9";
             Text = "Form9";
-            Load += Form9_Load;
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListView listView1;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuColor;
+        private ToolStripMenuItem toolStripMenuFont;
+        private Button button1;
+        private ToolStripMenuItem toolStripMenuFront;
+        private ToolStripMenuItem toolStripMenuBack;
     }
 }

@@ -8,43 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm3
+namespace WinForm4
 {
     public partial class Form9 : Form
     {
-        private String[] listview_Column = { "이름", "휴대폰", "소속" };
         public Form9()
         {
             InitializeComponent();
-            listView1.View = View.Details;
         }
 
-        private void Form9_Load(object sender, EventArgs e)
+        private void toolStripMenuFont_Click(object sender, EventArgs e)
         {
-            start_ListView();
-            add_items();
+            FontDialog dlg = new FontDialog();
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                button1.Font = dlg.Font;
+            }
         }
 
-        private void start_ListView()
+        private void toolStripMenuFront_Click(object sender, EventArgs e)
         {
-            int listview_width = listView1.ClientSize.Width;
-            int col_width = listview_width / 3;
-
-            listView1.Columns.Add(listview_Column[0], col_width, HorizontalAlignment.Center);
-            listView1.Columns.Add(listview_Column[1], col_width, HorizontalAlignment.Center);
-            listView1.Columns.Add(listview_Column[2], col_width, HorizontalAlignment.Center);
+            ColorDialog dlg = new ColorDialog();
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                button1.ForeColor = dlg.Color;
+            }
         }
-        private void add_items()
-        {
-            ListViewItem newitem = new ListViewItem(new string[] { "홍길동", "010-1234-5678", "활빈당" });
-            listView1.Items.Add(newitem);
-            ListViewItem newitem2 = new ListViewItem(new string[] { "배트맨", "012-2567-8945", "고담시" });
-            listView1.Items.Add(newitem2);
-            ListViewItem newitem3 = new ListViewItem(new string[] { "슈퍼맨", "010-1598-7532", "뉴욕타임즈" });
-            listView1.Items.Add(newitem3);
-            ListViewItem newitem4 = new ListViewItem(new string[] { "신사임당", "017-7854-1234", "속초" });
-            listView1.Items.Add(newitem4);
 
+        private void toolStripMenuBack_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                button1.BackColor = dlg.Color;
+            }
         }
     }
 }

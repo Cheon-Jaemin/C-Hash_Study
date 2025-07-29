@@ -1,4 +1,4 @@
-﻿namespace WinForm3
+﻿namespace WinForm4
 {
     partial class Form5
     {
@@ -28,73 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            progressBar1 = new ProgressBar();
-            textBox1 = new TextBox();
-            btnStart = new Button();
-            btnInit = new Button();
-            timer1 = new System.Windows.Forms.Timer(components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
+            trackBar1 = new TrackBar();
+            pictureBox1 = new PictureBox();
+            axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             SuspendLayout();
             // 
-            // progressBar1
+            // trackBar1
             // 
-            progressBar1.Location = new Point(77, 46);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(340, 23);
-            progressBar1.TabIndex = 0;
+            trackBar1.Location = new Point(238, 393);
+            trackBar1.Maximum = 100;
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(295, 45);
+            trackBar1.TabIndex = 0;
+            trackBar1.Scroll += trackBar1_Scroll;
             // 
-            // textBox1
+            // pictureBox1
             // 
-            textBox1.Location = new Point(77, 88);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(177, 23);
-            textBox1.TabIndex = 1;
+            pictureBox1.Image = Properties.Resources._727967;
+            pictureBox1.Location = new Point(1, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(800, 387);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
-            // btnStart
+            // axWindowsMediaPlayer1
             // 
-            btnStart.Location = new Point(333, 88);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(58, 27);
-            btnStart.TabIndex = 2;
-            btnStart.Text = "시작";
-            btnStart.UseVisualStyleBackColor = true;
-            btnStart.Click += btnStart_Click;
-            // 
-            // btnInit
-            // 
-            btnInit.Location = new Point(333, 121);
-            btnInit.Name = "btnInit";
-            btnInit.Size = new Size(58, 27);
-            btnInit.TabIndex = 2;
-            btnInit.Text = "초기화";
-            btnInit.UseVisualStyleBackColor = true;
-            btnInit.Click += btnInit_Click;
-            // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
+            axWindowsMediaPlayer1.Enabled = true;
+            axWindowsMediaPlayer1.Location = new Point(1, 12);
+            axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
+            axWindowsMediaPlayer1.Size = new Size(75, 23);
+            axWindowsMediaPlayer1.TabIndex = 2;
             // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(501, 192);
-            Controls.Add(btnInit);
-            Controls.Add(btnStart);
-            Controls.Add(textBox1);
-            Controls.Add(progressBar1);
+            ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
+            Controls.Add(trackBar1);
+            Controls.Add(axWindowsMediaPlayer1);
             Name = "Form5";
             Text = "Form5";
+            Load += Form5_Load;
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ProgressBar progressBar1;
-        private TextBox textBox1;
-        private Button btnStart;
-        private Button btnInit;
-        private System.Windows.Forms.Timer timer1;
+        private TrackBar trackBar1;
+        private PictureBox pictureBox1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
