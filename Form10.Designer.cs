@@ -1,4 +1,4 @@
-﻿namespace WinForm2
+﻿namespace WinForm3
 {
     partial class Form10
     {
@@ -28,122 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            TreeNode treeNode1 = new TreeNode("IT도서");
+            treeView1 = new TreeView();
+            tbNode = new TextBox();
+            btnAdd = new Button();
+            btnDel = new Button();
+            btnExpand = new Button();
+            btnCollapse = new Button();
             SuspendLayout();
             // 
-            // label1
+            // treeView1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("맑은 고딕", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(72, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(49, 20);
-            label1.TabIndex = 0;
-            label1.Text = "C언어";
+            treeView1.Location = new Point(24, 30);
+            treeView1.Name = "treeView1";
+            treeNode1.Name = "Root";
+            treeNode1.Text = "IT도서";
+            treeView1.Nodes.AddRange(new TreeNode[] { treeNode1 });
+            treeView1.Size = new Size(298, 388);
+            treeView1.TabIndex = 0;
             // 
-            // label2
+            // tbNode
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("맑은 고딕", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(72, 92);
-            label2.Name = "label2";
-            label2.Size = new Size(71, 20);
-            label2.TabIndex = 0;
-            label2.Text = "C++언어";
+            tbNode.Location = new Point(356, 30);
+            tbNode.Multiline = true;
+            tbNode.Name = "tbNode";
+            tbNode.Size = new Size(278, 48);
+            tbNode.TabIndex = 1;
             // 
-            // label3
+            // btnAdd
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("맑은 고딕", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(72, 147);
-            label3.Name = "label3";
-            label3.Size = new Size(58, 20);
-            label3.TabIndex = 0;
-            label3.Text = "C#언어";
+            btnAdd.BackColor = SystemColors.ControlLight;
+            btnAdd.Location = new Point(356, 93);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(278, 51);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "추가";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // label4
+            // btnDel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("맑은 고딕", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(72, 210);
-            label4.Name = "label4";
-            label4.Size = new Size(69, 20);
-            label4.TabIndex = 0;
-            label4.Text = "평균점수";
+            btnDel.BackColor = SystemColors.ControlLight;
+            btnDel.Location = new Point(356, 182);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(278, 51);
+            btnDel.TabIndex = 2;
+            btnDel.Text = "삭제";
+            btnDel.UseVisualStyleBackColor = false;
+            btnDel.Click += btnDel_Click;
             // 
-            // textBox1
+            // btnExpand
             // 
-            textBox1.Location = new Point(209, 43);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
+            btnExpand.BackColor = SystemColors.ControlLight;
+            btnExpand.Location = new Point(356, 278);
+            btnExpand.Name = "btnExpand";
+            btnExpand.Size = new Size(278, 51);
+            btnExpand.TabIndex = 2;
+            btnExpand.Text = "확장";
+            btnExpand.UseVisualStyleBackColor = false;
+            btnExpand.Click += btnExpand_Click;
             // 
-            // textBox2
+            // btnCollapse
             // 
-            textBox2.Location = new Point(209, 93);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(209, 148);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 1;
-            // 
-            // textBox4
-            // 
-            textBox4.Enabled = false;
-            textBox4.Location = new Point(209, 211);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 1;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(92, 281);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "결과보기";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(195, 281);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "지우기";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnCollapse.BackColor = SystemColors.ControlLight;
+            btnCollapse.Location = new Point(356, 367);
+            btnCollapse.Name = "btnCollapse";
+            btnCollapse.Size = new Size(278, 51);
+            btnCollapse.TabIndex = 2;
+            btnCollapse.Text = "축소";
+            btnCollapse.UseVisualStyleBackColor = false;
+            btnCollapse.Click += btnCollapse_Click;
             // 
             // Form10
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(368, 357);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(658, 450);
+            Controls.Add(btnCollapse);
+            Controls.Add(btnExpand);
+            Controls.Add(btnDel);
+            Controls.Add(btnAdd);
+            Controls.Add(tbNode);
+            Controls.Add(treeView1);
             Name = "Form10";
             Text = "Form10";
             ResumeLayout(false);
@@ -152,15 +118,11 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private Button button2;
+        private TreeView treeView1;
+        private TextBox tbNode;
+        private Button btnAdd;
+        private Button btnDel;
+        private Button btnExpand;
+        private Button btnCollapse;
     }
 }

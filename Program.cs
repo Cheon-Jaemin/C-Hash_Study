@@ -1,4 +1,4 @@
-namespace WinForm2
+namespace WinForm3
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace WinForm2
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form9());
+            Application.Run(new Form14());
         }
     }
 }

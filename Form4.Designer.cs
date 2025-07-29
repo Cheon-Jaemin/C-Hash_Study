@@ -1,4 +1,4 @@
-﻿namespace WinForm2
+﻿namespace WinForm3
 {
     partial class Form4
     {
@@ -28,20 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            hScrollBar1 = new HScrollBar();
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // hScrollBar1
+            // 
+            hScrollBar1.Location = new Point(21, 313);
+            hScrollBar1.Maximum = 200;
+            hScrollBar1.Name = "hScrollBar1";
+            hScrollBar1.Size = new Size(622, 31);
+            hScrollBar1.TabIndex = 0;
+            hScrollBar1.Scroll += hScrollBar1_Scroll;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(308, 206);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 15);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
             // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(658, 450);
-            KeyPreview = true;
+            ClientSize = new Size(652, 450);
+            Controls.Add(label1);
+            Controls.Add(hScrollBar1);
             Name = "Form4";
             Text = "Form4";
-            KeyDown += Form4_KeyDown;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private HScrollBar hScrollBar1;
+        private Label label1;
     }
 }

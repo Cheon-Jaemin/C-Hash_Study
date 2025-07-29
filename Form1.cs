@@ -1,4 +1,4 @@
-namespace WinForm2
+namespace WinForm3
 {
     public partial class Form1 : Form
     {
@@ -7,22 +7,49 @@ namespace WinForm2
             InitializeComponent();
         }
 
-        private void bt_Contains_Click(object sender, EventArgs e)
+        private void btnEvent_Click(object sender, EventArgs e)
         {
-            lb_Contains.Text = TextBox.Text.Contains("Hello").ToString(); 
-            lb_Equals.Text = TextBox.Text.Equals("Hello").ToString();
-            lb_Length.Text = TextBox.Text.Length.ToString();
-            lb_ToLower.Text = TextBox.Text.ToLower();
-            lb_ToUpper.Text = TextBox.Text.ToUpper();
+            string Order = "";
+            lb_order.Text = "";
+
+            if (ckbPencil.Checked == true)
+            {
+                Order += ckbPencil.Text + "\n";
+            }
+            if (ckbSharp.Checked == true)
+            {
+                Order += ckbSharp.Text + "\n";
+            }
+            if (ckbPen.Checked == true)
+            {
+                Order += ckbPen.Text + "\n";
+            }
+            if (ckbColor.Checked == true)
+            {
+                Order += ckbColor.Text + "\n";
+            }
+            if (ckbNote.Checked == true)
+            {
+                Order += ckbNote.Text + "\n";
+            }
+
+            lb_order.Text = Order + "상품을 선택하셨습니다.";
         }
 
-        private void bt_Init_Click(object sender, EventArgs e)
+        private void btnCheck_Click(object sender, EventArgs e)
         {
-            lb_Contains.Text = "-";
-            lb_Equals.Text = "-";
-            lb_Length.Text = "-";
-            lb_ToLower.Text = "-";
-            lb_ToUpper.Text = "-";
+            if(radio_yes.Checked == true)
+            {
+                MessageBox.Show("봉투를 구매하셨습니다.");
+            }
+            else if (Radio_no.Checked == true)
+            {
+                MessageBox.Show("봉투를 구매하지 않았습니다.");
+            }
+            else
+            {
+                MessageBox.Show("봉투구매여부를 확인하세요.");
+            }
         }
     }
 }

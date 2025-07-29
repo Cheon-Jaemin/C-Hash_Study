@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm2
+namespace WinForm3
 {
     public partial class Form2 : Form
     {
@@ -16,15 +16,25 @@ namespace WinForm2
         {
             InitializeComponent();
         }
-
-        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        public Form2(string data)
         {
-            MessageBox.Show("KeyDown 모든키");
+            InitializeComponent();
+            textBox1.Text = data;
+        }
+        public string TextBox1
+        {
+            set { textBox1.Text = value; }
         }
 
-        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+        //public void UpdateData (string data)
+        //{
+        //    textBox1.Text = data;
+        //}
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("KeyPress 문자키");
+            Form3 form3 = new Form3(this);
+            form3.Show();
         }
     }
 }

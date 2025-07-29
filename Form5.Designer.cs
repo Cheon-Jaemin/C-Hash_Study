@@ -1,4 +1,4 @@
-﻿namespace WinForm2
+﻿namespace WinForm3
 {
     partial class Form5
     {
@@ -28,58 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            progressBar1 = new ProgressBar();
             textBox1 = new TextBox();
-            label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnStart = new Button();
+            btnInit = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(77, 46);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(340, 23);
+            progressBar1.TabIndex = 0;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(36, 12);
+            textBox1.Location = new Point(77, 88);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(307, 23);
-            textBox1.TabIndex = 0;
-            textBox1.KeyPress += textBox1_KeyPress;
+            textBox1.Size = new Size(177, 23);
+            textBox1.TabIndex = 1;
             // 
-            // label1
+            // btnStart
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(36, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 15);
-            label1.TabIndex = 1;
-            label1.Text = "문자를 입력하시오.";
+            btnStart.Location = new Point(333, 88);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(58, 27);
+            btnStart.TabIndex = 2;
+            btnStart.Text = "시작";
+            btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click;
             // 
-            // button1
+            // btnInit
             // 
-            button1.Location = new Point(91, 124);
-            button1.Name = "button1";
-            button1.Size = new Size(82, 37);
-            button1.TabIndex = 2;
-            button1.Text = "출력";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnInit.Location = new Point(333, 121);
+            btnInit.Name = "btnInit";
+            btnInit.Size = new Size(58, 27);
+            btnInit.TabIndex = 2;
+            btnInit.Text = "초기화";
+            btnInit.UseVisualStyleBackColor = true;
+            btnInit.Click += btnInit_Click;
             // 
-            // button2
+            // timer1
             // 
-            button2.Location = new Point(193, 124);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 37);
-            button2.TabIndex = 2;
-            button2.Text = "초기화";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            timer1.Tick += timer1_Tick;
             // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(369, 206);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label1);
+            ClientSize = new Size(501, 192);
+            Controls.Add(btnInit);
+            Controls.Add(btnStart);
             Controls.Add(textBox1);
+            Controls.Add(progressBar1);
             Name = "Form5";
             Text = "Form5";
             ResumeLayout(false);
@@ -88,9 +91,10 @@
 
         #endregion
 
+        private ProgressBar progressBar1;
         private TextBox textBox1;
-        private Label label1;
-        private Button button1;
-        private Button button2;
+        private Button btnStart;
+        private Button btnInit;
+        private System.Windows.Forms.Timer timer1;
     }
 }

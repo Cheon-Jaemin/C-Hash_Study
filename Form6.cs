@@ -8,39 +8,98 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm2
+namespace WinForm3
 {
     public partial class Form6 : Form
     {
         public Form6()
         {
             InitializeComponent();
+            domainUpDownList.Add(domainUpDown1);
+            numericUpDownList.Add(numericUpDown1);
+
+            dx = domainUpDown1.Location.X;
+            dy = domainUpDown1.Location.Y;
+            nx = numericUpDown1.Location.X;
+            ny = numericUpDown1.Location.Y;
         }
 
-        private void Form6_MouseClick(object sender, MouseEventArgs e)
+        List<DomainUpDown> domainUpDownList = new List<DomainUpDown>();
+
+        List<NumericUpDown> numericUpDownList = new List<NumericUpDown>();
+
+        int y = 30;
+        int cnt = 1;
+        int dx, dy;
+        int nx, ny;
+
+        static int[] price = new int[] { 7000, 9000, 9000, 11000, 10000, 15000, 17000, 20000, 22000 };
+        static string[] menu = new string[] { "짜장면", "짬뽕", "간짜장", "쟁반짜장", "해물짬뽕", "꿔바로우", "탕수육", "깐쇼새우", "깐풍기" };
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            label3.Text = "(버튼 클릭) 좌표 : " + e.Location;
+            DomainUpDown domainUpDown = new DomainUpDown();
+            NumericUpDown numericUpDown = new NumericUpDown();
+
+            for (int i = 0; i < domainUpDown1.Items.Count; i++)
+            {
+                domainUpDown.Items.Add(domainUpDown1.Items[i]);
+            }
+
+            domainUpDown.Location = new System.Drawing.Point(dx, dy + y);
+
+            numericUpDown.Location = new System.Drawing.Point(nx, ny + y);
+
+            y += 30;
+
+            domainUpDownList.Add(domainUpDown);
+            numericUpDownList.Add(numericUpDown);
+            cnt++;
+
+            for (int i = 0; i < domainUpDownList.Count; i++)
+            {
+                Controls.Add(domainUpDownList[i]);
+                Controls.Add(numericUpDownList[i]);
+            }
         }
 
-        private void Form6_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
-            label4.Text = "(버튼 더블클릭) 좌표 : " + e.Location;
+            if (cnt != 1)
+            {
+                Controls.Remove(domainUpDownList[cnt - 1]);
+                Controls.Remove(numericUpDownList[cnt - 1]);
+
+                domainUpDownList.RemoveAt(cnt - 1);
+                numericUpDownList.RemoveAt(cnt - 1);
+
+                y -= 30;
+                cnt--;
+            }
+            else
+            {
+                MessageBox.Show("더이상 못지움");
+                cnt = 1;
+            }
         }
 
-        private void Form6_MouseUp(object sender, MouseEventArgs e)
+        private void btnResult_Click(object sender, EventArgs e)
         {
-            label2.Text = "(버튼 놓음) 좌표 : " + e.Location;
-        }
+            int sum = 0;
+            int num = 0;
 
-        private void Form6_MouseDown(object sender, MouseEventArgs e)
-        {
-            label1.Text = e.Location.ToString();
+            for(int i = 0; i < cnt; i++)
+            {
+                for (int j = 0; j < menu.Length; j++)
+                {
+                    if (domainUpDownList[i].Text == menu[j])
+                    {
+                        num = price[j] * (int)numericUpDownList[i].Value;
+                        sum += num;
+                    }
+                }
+            }
+            
+            lb_result_price.Text = sum.ToString();
         }
-
-        private void Form6_MouseMove(object sender, MouseEventArgs e)
-        {
-            label5.Text = "현재 마우스 좌표 : " + e.Location;
-        }
-
     }
 }

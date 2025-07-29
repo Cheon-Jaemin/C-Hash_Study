@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace WinForm3
 {
-    public partial class Form7 : Form
+    public partial class Form13 : Form
     {
-        public Form7()
+        public Form13()
         {
             InitializeComponent();
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Text = dateTimePicker1.Value.ToString();
+            pictureBox2.Image = null;
         }
 
-        private void Form7_Load(object sender, EventArgs e)
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            dateTimePicker1.Format = DateTimePickerFormat.Long;
+            pictureBox2.Image = pictureBox1.Image;
         }
     }
 }

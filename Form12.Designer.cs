@@ -1,6 +1,6 @@
 ﻿namespace WinForm3
 {
-    partial class Form7
+    partial class Form12
     {
         /// <summary>
         /// Required designer variable.
@@ -28,44 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // dateTimePicker1
+            // pictureBox1
             // 
-            dateTimePicker1.CustomFormat = "yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(32, 30);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 0;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            pictureBox1.Image = Properties.Resources.스크린샷_2025_07_28_162514;
+            pictureBox1.Location = new Point(127, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(421, 411);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(32, 73);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // Form7
+            // Form12
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(276, 139);
-            Controls.Add(textBox1);
-            Controls.Add(dateTimePicker1);
-            Name = "Form7";
-            Text = "Form7";
-            Load += Form7_Load;
+            ClientSize = new Size(658, 450);
+            Controls.Add(pictureBox1);
+            Name = "Form12";
+            Text = "Form12";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
+        private PictureBox pictureBox1;
     }
 }

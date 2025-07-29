@@ -1,4 +1,4 @@
-﻿namespace WinForm2
+﻿namespace WinForm3
 {
     partial class Form2
     {
@@ -28,20 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
+            textBox1 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(61, 88);
+            label1.Name = "label1";
+            label1.Size = new Size(31, 15);
+            label1.TabIndex = 0;
+            label1.Text = "주소";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(106, 85);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(427, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(555, 83);
+            button1.Name = "button1";
+            button1.Size = new Size(77, 25);
+            button1.TabIndex = 2;
+            button1.Text = "주소검색";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(659, 450);
+            ClientSize = new Size(658, 202);
+            Controls.Add(button1);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
             Name = "Form2";
             Text = "Form2";
-            KeyDown += Form2_KeyDown;
-            KeyPress += Form2_KeyPress;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private TextBox textBox1;
+        private Button button1;
     }
 }
